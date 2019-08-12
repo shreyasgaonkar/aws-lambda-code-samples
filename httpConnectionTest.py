@@ -1,5 +1,4 @@
 import urllib.request
-import json
 
 def lambda_handler(event, context):
     a=urllib.request.urlopen('http://www.google.com/')
