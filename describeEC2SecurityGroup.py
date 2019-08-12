@@ -2,9 +2,8 @@ import boto3
 import json
 
 client = boto3.client('ec2')
-# ec2 = boto3.resource('ec2')
-# network_acl = ec2.NetworkAcl('id')
 
+# Enter Target VPC ID
 target_vpc_id = '<Enter-VPC-id>'
 
 
@@ -32,7 +31,7 @@ def lambda_handler(event, context):
                     }
                 ]
             )
-            nac_id = response['NetworkAcls'][0]['Associations'][0]['NetworkAclId']
+            nac_id = response['NetworkAcls'][0]["NetworkAclId"]
             all_instances.append(("Instance id: " + instance_id, "Security Group ID: " + security_group_id, "NACL id: " + nac_id))
         
     
