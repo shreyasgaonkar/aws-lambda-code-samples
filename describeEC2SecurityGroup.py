@@ -2,9 +2,10 @@ import boto3
 import json
 
 client = boto3.client('ec2')
-ec2 = boto3.resource('ec2')
+# ec2 = boto3.resource('ec2')
+# network_acl = ec2.NetworkAcl('id')
 
-target_vpc_id = '<Enter-VPC-ID>'
+target_vpc_id = '<Enter-VPC-id>'
 
 
 def lambda_handler(event, context):
@@ -21,8 +22,18 @@ def lambda_handler(event, context):
         if(result['Reservations'][instance]['Instances'][0]['NetworkInterfaces'][0]['VpcId'] == target_vpc_id):
             instance_id = result['Reservations'][instance]['Instances'][0]['InstanceId']
             security_group_id = result['Reservations'][instance]['Instances'][0]['NetworkInterfaces'][0]['Groups'][0]['GroupId']
+            subnet_id = result['Reservations'][instance]['Instances'][0]['NetworkInterfaces'][0]['SubnetId']
             
-            all_instances.append((instance_id, security_group_id))
+            response = client.describe_network_acls(
+                Filters=[
+                    {
+                        'Name': 'association.subnet-id',
+                        'Values': [subnet_id]
+                    }
+                ]
+            )
+            nac_id = response['NetworkAcls'][0]['Associations'][0]['NetworkAclId']
+            all_instances.append(("Instance id: " + instance_id, "Security Group ID: " + security_group_id, "NACL id: " + nac_id))
         
     
     # Check if 'result' call is paginated, if so repeat the call
@@ -46,6 +57,6 @@ def lambda_handler(event, context):
 
 
     # Print Instance and it's Security Group ID
-    
+
     for i in all_instances:
         print(i)
