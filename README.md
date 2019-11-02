@@ -9,4 +9,6 @@ Few of the Lambda function sample codes:
 
 4. Programmatically create subscription filters for SNS  - [set-subscription-filters.py](sns-samples/set-subscription-filters.py)
 
+5. List code storage for all Lambda functions in a region - [lambda_code_size.py](lambda-samples/lambda_code_size.py)
+
 Refer to the individual .md files for additional information.
