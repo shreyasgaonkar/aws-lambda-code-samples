@@ -11,4 +11,6 @@ Few of the Lambda function sample codes:
 
 5. List code storage for all Lambda functions in a region - [lambda_code_size.py](lambda-samples/lambda_code_size.py)
 
+6. Create Memory used Metrics for your Lambda functions - [lambda_memory_plot.py](lambda-samples/lambda_memory_plot.py)
+
 Refer to the individual .md files for additional information.
