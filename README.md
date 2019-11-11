@@ -13,4 +13,36 @@ Few of the Lambda function sample codes:
 
 6. Create Memory used Metrics for your Lambda functions - [lambda_memory_plot.py](lambda-samples/lambda_memory_plot.py)
 
+7. Get underlying Lambda's CPU hardware, /tmp storage, os-release and it's contents  - [get_cpu_info.py](lambda-samples/get_cpu_info.py)
+
 Refer to the individual .md files for additional information.
+
+```
+$ tree
+.
+├── LICENSE
+├── README.md
+├── ec2-samples
+│   ├── describe_ami.md
+│   ├── describe_ami.py
+│   ├── describe_ec2_securitygroup.md
+│   └── describe_ec2_securitygroup.py
+├── lambda-samples
+│   ├── get_cpu_info.md
+│   ├── get_cpu_info.py
+│   ├── lambda_code_size.md
+│   ├── lambda_code_size.py
+│   ├── lambda_memory_plot.md
+│   └── lambda_memory_plot.py
+├── misc
+│   ├── http_connection_test.md
+│   └── http_connection_test.py
+├── sns-samples
+│   ├── sender_id.md
+│   ├── sender_id.py
+│   ├── set_subscription_filters.md
+│   └── set_subscription_filters.py
+└── temp
+    └── images
+        └── AWSLambdaCloudWatchMetric.png
+```
