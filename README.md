@@ -27,6 +27,12 @@ $ tree
 │   ├── describe_ami.py
 │   ├── describe_ec2_securitygroup.md
 │   └── describe_ec2_securitygroup.py
+├── lambda-layer
+│   ├── README.md
+│   ├── boto3.zip
+│   ├── pandasnumpy.zip
+│   ├── psycopg2.zip
+│   └── requests.zip
 ├── lambda-samples
 │   ├── get_cpu_info.md
 │   ├── get_cpu_info.py
