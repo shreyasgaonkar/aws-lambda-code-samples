@@ -48,7 +48,7 @@ $ tree
 │   ├── sender_id.py
 │   ├── set_subscription_filters.md
 │   └── set_subscription_filters.py
-└── temp
+└── tmp
     └── images
         └── AWSLambdaCloudWatchMetric.png
 ```
