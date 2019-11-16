@@ -29,6 +29,7 @@ SNS
 
 1. Programmatically create subscription filters for SNS  - [set_subscription_filters.py](sns-samples/set_subscription_filters.py)
 
+2. Programmatically set SenderID while sending SMS text messages  - [sender_id.py](sns-samples/sender_id.py)
 
 ---
 Refer to the individual .md files for additional information.
