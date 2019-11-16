@@ -24,9 +24,11 @@ A  few of the sample AWS Lambda function codes for common use-cases with [Amazon
 
 ## SNS
 
-1. Programmatically create subscription filters for SNS  - [set_subscription_filters.py](sns-samples/set_subscription_filters.py)
+1. List all subscriptions tied to a topic in an account  - [list_account_topic_subscriptions.py](sns-samples/list_account_topic_subscriptions.py)
 
-2. Programmatically set SenderID while sending SMS text messages  - [sender_id.py](sns-samples/sender_id.py)
+2. Programmatically create subscription filters for SNS  - [set_subscription_filters.py](sns-samples/set_subscription_filters.py)
+
+3. Programmatically set SenderID while sending SMS text messages  - [sender_id.py](sns-samples/sender_id.py)
 
 ## Additional Information
 
@@ -78,14 +80,15 @@ $ tree
 ├── lambda-samples
 │   ├── get_cpu_info.md
 │   ├── get_cpu_info.py
+│   ├── http_connection_test.md
+│   ├── http_connection_test.py
 │   ├── lambda_code_size.md
 │   ├── lambda_code_size.py
 │   ├── lambda_memory_plot.md
 │   └── lambda_memory_plot.py
-├── misc
-│   ├── http_connection_test.md
-│   └── http_connection_test.py
 ├── sns-samples
+│   ├── list_account_topic_subscriptions.md
+│   ├── list_account_topic_subscriptions.py
 │   ├── sender_id.md
 │   ├── sender_id.py
 │   ├── set_subscription_filters.md
