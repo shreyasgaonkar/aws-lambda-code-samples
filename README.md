@@ -17,7 +17,7 @@ A  few of the sample AWS Lambda function codes for common use-cases with [Amazon
 
 2. Create "Memory Used" Metrics for your Lambda functions - [lambda_memory_plot.py](lambda-samples/lambda_memory_plot.py)
 
-3. Test HTTP connection for your Lambda function inside VPC - [http_connection_test.py](misc/http_connection_test.py)
+3. Test HTTP connection for your Lambda function inside VPC - [http_connection_test.py](lambda-samples/http_connection_test.py)
 
 4. List code storage for all Lambda functions in a region - [lambda_code_size.py](lambda-samples/lambda_code_size.py)
 
