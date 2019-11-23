@@ -2,7 +2,13 @@
 
 ```start_stop_ec2_instances_with_cloudwatch_event.py``` will toggle instance state (start/stop) when a certain tag is added, and depending upon the time of the day.
 
-Here, we are using the Tag name as ```start-stop``` and it's value as ```yes```. The start-stop behavior will be triggered by a CloudWatch Event source (Needs to be added separately once this is created). Depending upon the time of the day, function will start the instances if the trigger occurs before noon. Likewise, for Lambda triggers after the noon, Lambda will stop the instance.
+Here, we are using the Tag name as ```start-stop``` and it's value as ```yes```. The start-stop behavior will be triggered by a CloudWatch Event source (see below). Depending upon the time of the day, function will start the instances if the triggered before noon. Likewise, for a trigger after noon, Lambda will stop the targeted instance.
+
+```BASH
+0 8,18 * * ? *
+```
+
+This cron expression will trigger twice a day - once at 8:00 AM and the other at 6:00 PM. This can be used on a CloudWatch event trigger which will fire the Lambda function during the set times.
 
 Feel free to play with the tag names and the time where the toggle should occur as per your use-case.
 
