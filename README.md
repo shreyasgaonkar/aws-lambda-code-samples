@@ -17,9 +17,11 @@ A  few of the sample AWS Lambda function codes for common use-cases with [Amazon
 
 2. Create "Memory Used" Metrics for your Lambda functions - [lambda_memory_plot.py](lambda-samples/lambda_memory_plot.py)
 
-3. Test HTTP connection for your Lambda function inside VPC - [http_connection_test.py](lambda-samples/http_connection_test.py)
+3. List all Lambda layers and it's info  - [list_layer_info.py](lambda-samples/list_layer_info.py)
 
 4. List code storage for all Lambda functions in a region - [lambda_code_size.py](lambda-samples/lambda_code_size.py)
+
+5. Test HTTP connection for your Lambda function inside VPC - [http_connection_test.py](lambda-samples/http_connection_test.py)
 
 
 ## SNS
@@ -85,7 +87,9 @@ $ tree
 │   ├── lambda_code_size.md
 │   ├── lambda_code_size.py
 │   ├── lambda_memory_plot.md
-│   └── lambda_memory_plot.py
+│   ├── lambda_memory_plot.py
+│   ├── list_layer_info.md
+│   └── list_layer_info.py
 ├── sns-samples
 │   ├── list_account_topic_subscriptions.md
 │   ├── list_account_topic_subscriptions.py
@@ -96,4 +100,5 @@ $ tree
 └── tmp
     └── images
         └── AWSLambdaCloudWatchMetric.png
+
 ```
