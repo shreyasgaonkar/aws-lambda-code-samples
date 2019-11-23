@@ -3,7 +3,7 @@ This will programmatically create subscription filters (here using phone numbers
 
 Sample payload to set subscription policy:
 
-```
+```JSON
 {
    "store": ["example_corp"],
    "event": [{"anything-but": "order_cancelled"}],
