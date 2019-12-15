@@ -32,6 +32,8 @@ A  few of the sample AWS Lambda function codes for common use-cases with [Amazon
 
 3. Programmatically set SenderID while sending SMS text messages  - [sender_id.py](sns-samples/sender_id.py)
 
+4. Programmatically set max price while sending SMS text messages - [set_max_price.py](sns-samples/set_max_price.py)
+
 ## Additional Information
 
 - Refer to the individual .md files for additional information.
@@ -49,7 +51,7 @@ A  few of the sample AWS Lambda function codes for common use-cases with [Amazon
 
 ## Contributing
 
-This is an iterative repository, I'll keep adding more sample codes for more use-cases as I come across them. I have tested all scripts using ```Python3.6``` runtime inside Lambda under ```us-west-2``` region, and most of this should work for all Python runtimes (Python 2.7 EOL: :dizzy_face:).
+This is an iterative repository, I'll keep adding more sample codes for more use-cases as I come across them. I have tested all scripts using ```Python3.6``` runtime inside Lambda under ```us-west-2``` region, and most of this should work for all ```Python3``` runtimes (Python 2.7 EOL: :dizzy_face:).
 
 - Fork repo
 - Set runtime as ```Python3```
@@ -64,6 +66,7 @@ This is an iterative repository, I'll keep adding more sample codes for more use
 ```
 $ tree
 .
+├── CODE_OF_CONDUCT.md
 ├── LICENSE
 ├── README.md
 ├── ec2-samples
@@ -95,10 +98,11 @@ $ tree
 │   ├── list_account_topic_subscriptions.py
 │   ├── sender_id.md
 │   ├── sender_id.py
+│   ├── set_max_price.md
+│   ├── set_max_price.py
 │   ├── set_subscription_filters.md
 │   └── set_subscription_filters.py
 └── tmp
     └── images
         └── AWSLambdaCloudWatchMetric.png
-
 ```

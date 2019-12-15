@@ -10,7 +10,7 @@ def lambda_handler(event, context):
 
     message = 'Hello, from AWS SNS!'
     response = client.publish(
-        PhoneNumber='+353833798840',
+        PhoneNumber='+11XXX5550100',
         Message=message,
         MessageAttributes={
             'AWS.SNS.SMS.SenderID': {
