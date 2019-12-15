@@ -1,0 +1,3 @@
+Since cost of sending SMS messages using SNS varies depending upon the [target country](https://aws.amazon.com/sns/sms-pricing/), we can control if a message costs a higher value using [MessageAttributes](https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html#sms_publish_sdk).
+
+```AWS.SNS.SMS.MaxPrice``` will set an upper cap on the cost of the message in USD. Although the SDK call will return success response, SNS will not sending text message, and will not take way cost from the [monthly spend limit](https://docs.aws.amazon.com/sns/latest/dg/sms_preferences.html#sms_preferences_console) for SMS messages.
