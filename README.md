@@ -54,7 +54,7 @@ A  few of the sample AWS Lambda function codes for common use-cases with [Amazon
 This is an iterative repository, I'll keep adding more sample codes for more use-cases as I come across them. I have tested all scripts using ```Python3.6``` runtime inside Lambda under ```us-west-2``` region, and most of this should work for all ```Python3``` runtimes (Python 2.7 EOL: :dizzy_face:).
 
 - Fork repo
-- Set runtime as ```Python3```
+- Set runtime as ```Python3``` (```Python3.6``` preferred)
 - Send your awesome :raised_hands: [Pull Request](https://github.com/shreyasgaonkar/aws-lambda-code-samples/pulls) with code/.md changes
     - Follow Python's [PEP8](https://www.python.org/dev/peps/pep-0008/) coding standards.
     - Commit repo using the [Seven Rules](https://chris.beams.io/posts/git-commit/#seven-rules)
@@ -92,7 +92,9 @@ $ tree
 │   ├── lambda_memory_plot.md
 │   ├── lambda_memory_plot.py
 │   ├── list_layer_info.md
-│   └── list_layer_info.py
+│   ├── list_layer_info.py
+│   ├── reserved_concurrency.md
+│   └── reserved_concurrency.py
 ├── sns-samples
 │   ├── list_account_topic_subscriptions.md
 │   ├── list_account_topic_subscriptions.py
