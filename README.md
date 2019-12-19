@@ -21,7 +21,7 @@ A  few of the sample AWS Lambda function codes for common use-cases with [Amazon
 
 4. List code storage for all Lambda functions in a region - [lambda_code_size.py](lambda-samples/lambda_code_size.py)
 
-5. Get all functions using reserved or provisional concurrency in a region - [reserved_concurrency.py](lambda-samplesreserved_concurrency.py)
+5. Get all functions using reserved or provisional concurrency in a region - [reserved_concurrency.py](lambda-samples/reserved_concurrency.py)
 
 6. Test HTTP connection for your Lambda function inside VPC - [http_connection_test.py](lambda-samples/http_connection_test.py)
 
