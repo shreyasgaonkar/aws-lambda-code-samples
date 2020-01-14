@@ -25,6 +25,8 @@ A  few of the sample AWS Lambda function codes for common use-cases with [Amazon
 
 6. Test HTTP connection for your Lambda function inside VPC - [http_connection_test.py](lambda-samples/http_connection_test.py)
 
+7. Check Async queue congestions and delays in processing async events - [get_async_invoke_delay.py](lambda-samples/get_async_invoke_delay.py)
+
 
 ## SNS
 
