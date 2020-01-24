@@ -1,11 +1,8 @@
 import datetime
-import json
 
 
 def lambda_handler(event, context):
     """Main Function"""
-
-    print(f"Delay is {getSeconds(event['Records'][0]['eventTime'])} seconds")
 
     # Event as per: https://docs.aws.amazon.com/lambda/latest/dg/with-s3.html
 
@@ -15,7 +12,7 @@ def lambda_handler(event, context):
 
     return {
         'statusCode': 200,
-        'body': json.dumps('Hello from Lambda!')
+        'body': f"Delay is {getSeconds(event['Records'][0]['eventTime'])} seconds"
     }
 
 
