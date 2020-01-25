@@ -27,6 +27,7 @@ A  few of the sample AWS Lambda function codes for common use-cases with [Amazon
 
 7. Check Async queue congestions and delays in processing async events - [get_async_invoke_delay.py](lambda-samples/get_async_invoke_delay.py)
 
+8. List Lambda function version(s) using an ENI - [lambda_hyperplane_eni_checker.py](lambda-samples/lambda_hyperplane_eni_checker.py)
 
 ## SNS
 
