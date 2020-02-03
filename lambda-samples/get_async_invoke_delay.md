@@ -5,3 +5,5 @@ Few AWS services will invoke AWS Lambda asynchronously. These events are added t
 [get_async_invoke_delay.py](get_async_invoke_delay.py) will help quickly figure out if there's any congestions in the queue causing other functions to be delayed using the difference between the current time and the time at which these messages were added by the respective service.
 
 For Synchronous invocations this will not happen as the invoker will "wait" until Lambda responds back with success/failure message.
+
+Since this metric isn't listed out of the box, we can write a custom CloudWatch Metric for it by dumping the values which we received and check the delay plotted over time.
