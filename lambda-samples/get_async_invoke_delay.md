@@ -7,3 +7,5 @@ Few AWS services will invoke AWS Lambda asynchronously. These events are added t
 For Synchronous invocations this will not happen as the invoker will "wait" until Lambda responds back with success/failure message.
 
 Since this metric isn't listed out of the box, we can write a custom CloudWatch Metric for it by dumping the values which we received and check the delay plotted over time.
+
+![Lambda Metrics](/tmp/images/AWSLambdaCloudWatchAsyncDelay.png)
