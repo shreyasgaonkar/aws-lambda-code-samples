@@ -1,49 +1,43 @@
 import json
 import boto3
 
-# Use paginator from:
-# https://boto3.amazonaws.com/v1/documentation/api/latest/guide/paginators.html#filtering-results
-# to call recursively on the same API call if next token is returned.
-
 client = boto3.client('lambda')
-paginator = client.get_paginator('list_functions')
 
-# Make sure ALL versions are returned
-operation_parameters = {'FunctionVersion': 'ALL'}
 
-# Create an empty set to dump all the individual function's data
-allFunctions = set()
+def total_function_size(function_name, qualifier):
+
+    total_size = 0
+    layer_size = 0
+
+    response = client.get_function(
+        FunctionName='numpy',
+        Qualifier='$LATEST'
+    )
+
+    total_size += response['Configuration']['CodeSize']
+    print(f"Total code size: {total_size} bytes")
+
+    try:
+        for i in response['Configuration']['Layers']:
+            layer_size += i['CodeSize']
+        print(f"Total layer size: {layer_size} bytes")
+        total_size += layer_size
+    except:
+        pass
+
+    return (round(total_size/1024, 2))
 
 
 def lambda_handler(event, context):
 
-    page_iterator = paginator.paginate(**operation_parameters)
-    for page in page_iterator:
-        functions = page['Functions']
+    function_name = 'numpy'
+    qualifier = '$LATEST'
 
-        for function in functions:
-            funct = {
-                "Name": function['FunctionName'],
-                "Version": function['Version'],
-                "CodeSize": function['CodeSize']
-            }
+    output = total_function_size(function_name, qualifier)
 
-            funct = json.dumps(funct)
-            allFunctions.add(funct)
+    print(f"Total function size including layers: {output} MB")
 
-    total = 0
-    for i in sorted(allFunctions):
-        i = json.loads(i)
-        print("{function:48}:{version:8} {size:,.2f}".format(
-            function=i['Name'], version=i['Version'], size=i['CodeSize']))
-        total += i['CodeSize']
-
-    # Convert bytes to MB
-    total = total / 1024 / 1024
-
-    data = "Lambda code storage: {}".format(str(total))
-    print(data)
     return {
         'statusCode': 200,
-        'body': json.dumps(data)
+        'body': json.dumps(f'Total function size for function: {function_name} including layers: {output} MB')
     }
