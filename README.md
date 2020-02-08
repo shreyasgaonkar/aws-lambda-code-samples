@@ -4,40 +4,40 @@ A  few of the sample AWS Lambda function codes for common use-cases with [Amazon
 
 ## EC2
 
-1. Start/Stop EC2 instances using CloudWatch Event Trigger  - [start_stop_ec2_instances_with_cloudwatch_event.py](ec2-samples/start_stop_ec2_instances_with_cloudwatch_event.py)
+1. Start/Stop EC2 instances using CloudWatch Event Trigger  - [start_stop_ec2_instances_with_cloudwatch_event.py](ec2-samples/start_stop_ec2_instances_with_cloudwatch_event/start_stop_ec2_instances_with_cloudwatch_event.py)
 
-2. Describe EC2's metadata in a region - Associated subnets, Instance ID & NACL-ID for a target VPC - [describe_ec2_securitygroup.py](ec2-samples/describe_ec2_securitygroup.py)
+2. Describe EC2's metadata in a region - Associated subnets, Instance ID & NACL-ID for a target VPC - [describe_ec2_securitygroup.py](ec2-samples/describe_ec2_securitygroup/describe_ec2_securitygroup.py)
 
-3. Describe all AMIs for your account across all regions - [describe_ami.py](ec2-samples/describe_ami.py)
+3. Describe all AMIs for your account across all regions - [describe_ami.py](ec2-samples/describe_ami/describe_ami.py)
 
 
 ## Lambda
 
-1. Get underlying Lambda's CPU hardware, /tmp storage, os-release and it's contents  - [get_cpu_info.py](lambda-samples/get_cpu_info.py)
+1. Get underlying Lambda's CPU hardware, /tmp storage, os-release and it's contents  - [get_cpu_info.py](lambda-samples/get_cpu_info/get_cpu_info.py)
 
-2. Create "Memory Used" Metrics for your Lambda functions - [lambda_memory_plot.py](lambda-samples/lambda_memory_plot.py)
+2. Create "Memory Used" Metrics for your Lambda functions - [lambda_memory_plot.py](lambda-samples/lambda_memory_plot/lambda_memory_plot.py)
 
-3. List all Lambda layers and it's info  - [list_layer_info.py](lambda-samples/list_layer_info.py)
+3. List all Lambda layers and it's info  - [list_layer_info.py](lambda-samples/list_layer_info/list_layer_info.py)
 
-4. List code storage for all Lambda functions in a region - [lambda_code_size.py](lambda-samples/lambda_code_size.py)
+4. List code storage for all Lambda functions in a region - [lambda_code_size.py](lambda-samples/lambda_code_size/lambda_code_size.py)
 
-5. Get all functions using reserved or provisional concurrency in a region - [reserved_concurrency.py](lambda-samples/reserved_concurrency.py)
+5. Get all functions using reserved or provisional concurrency in a region - [reserved_concurrency.py](lambda-samples/reserved_concurrency/reserved_concurrency.py)
 
-6. Test HTTP connection for your Lambda function inside VPC - [http_connection_test.py](lambda-samples/http_connection_test.py)
+6. Test HTTP connection for your Lambda function inside VPC - [http_connection_test.py](lambda-samples/http_connection_test/http_connection_test.py)
 
-7. Check Async queue congestions and delays in processing async events - [get_async_invoke_delay.py](lambda-samples/get_async_invoke_delay.py)
+7. Check Async queue congestions and delays in processing async events - [get_async_invoke_delay.py](lambda-samples/get_async_invoke_delay/get_async_invoke_delay.py)
 
-8. List Lambda function version(s) using an ENI - [lambda_hyperplane_eni_checker.py](lambda-samples/lambda_hyperplane_eni_checker.py)
+8. List Lambda function version(s) using an ENI - [lambda_hyperplane_eni_checker.py](lambda-samples/lambda_hyperplane_eni_checker/lambda_hyperplane_eni_checker.py)
 
 ## SNS
 
-1. List all subscriptions tied to a topic in an account  - [list_account_topic_subscriptions.py](sns-samples/list_account_topic_subscriptions.py)
+1. List all subscriptions tied to a topic in an account  - [list_account_topic_subscriptions.py](sns-samples/list_account_topic_subscriptions/list_account_topic_subscriptions.py)
 
-2. Programmatically create subscription filters for SNS  - [set_subscription_filters.py](sns-samples/set_subscription_filters.py)
+2. Programmatically create subscription filters for SNS  - [set_subscription_filters.py](sns-samples/set_subscription_filters/set_subscription_filters.py)
 
-3. Programmatically set SenderID while sending SMS text messages  - [sender_id.py](sns-samples/sender_id.py)
+3. Programmatically set SenderID while sending SMS text messages  - [sender_id.py](sns-samples/sender_id/sender_id.py)
 
-4. Programmatically set max price while sending SMS text messages - [set_max_price.py](sns-samples/set_max_price.py)
+4. Programmatically set max price while sending SMS text messages - [set_max_price.py](sns-samples/set_max_price/set_max_price.py)
 
 ## Additional Information
 
@@ -68,53 +68,68 @@ This is an iterative repository, I'll keep adding more sample codes for more use
 
 #### Repo structure:
 
-```
+```bash
 $ tree
 .
-├── CODE_OF_CONDUCT.md
-├── LICENSE
-├── README.md
-├── ec2-samples
-│   ├── describe_ami.md
-│   ├── describe_ami.py
-│   ├── describe_ec2_securitygroup.md
-│   ├── describe_ec2_securitygroup.py
-│   ├── start_stop_ec2_instances_with_cloudwatch_event.md
-│   └── start_stop_ec2_instances_with_cloudwatch_event.py
-├── lambda-layer
-│   ├── README.md
-│   ├── boto3.zip
-│   ├── pandasnumpy.zip
-│   ├── psycopg2.zip
-│   └── requests.zip
-├── lambda-samples
-│   ├── get_async_invoke_delay.md
-│   ├── get_async_invoke_delay.py
-│   ├── get_cpu_info.md
-│   ├── get_cpu_info.py
-│   ├── http_connection_test.md
-│   ├── http_connection_test.py
-│   ├── lambda_code_size.md
-│   ├── lambda_code_size.py
-│   ├── lambda_hyperplane_eni_checker.md
-│   ├── lambda_hyperplane_eni_checker.py
-│   ├── lambda_memory_plot.md
-│   ├── lambda_memory_plot.py
-│   ├── list_layer_info.md
-│   ├── list_layer_info.py
-│   ├── reserved_concurrency.md
-│   └── reserved_concurrency.py
-├── sns-samples
-│   ├── list_account_topic_subscriptions.md
-│   ├── list_account_topic_subscriptions.py
-│   ├── sender_id.md
-│   ├── sender_id.py
-│   ├── set_max_price.md
-│   ├── set_max_price.py
-│   ├── set_subscription_filters.md
-│   └── set_subscription_filters.py
-└── tmp
-    └── images
-        ├── AWSLambdaCloudWatchAsyncDelay.png
-        └── AWSLambdaCloudWatchMetric.png
+|-- CODE_OF_CONDUCT.md
+|-- LICENSE
+|-- README.md
+|-- ec2-samples
+|   |-- describe_ami
+|   |   |-- describe_ami.md
+|   |   `-- describe_ami.py
+|   |-- describe_ec2_securitygroup
+|   |   |-- describe_ec2_securitygroup.md
+|   |   `-- describe_ec2_securitygroup.py
+|   `-- start_stop_ec2_instances_with_cloudwatch_event
+|       |-- start_stop_ec2_instances_with_cloudwatch_event.md
+|       `-- start_stop_ec2_instances_with_cloudwatch_event.py
+|-- lambda-layer
+|   |-- README.md
+|   |-- boto3.zip
+|   |-- pandasnumpy.zip
+|   |-- psycopg2.zip
+|   `-- requests.zip
+|-- lambda-samples
+|   |-- get_async_invoke_delay
+|   |   |-- get_async_invoke_delay.md
+|   |   `-- get_async_invoke_delay.py
+|   |-- get_cpu_info
+|   |   |-- get_cpu_info.md
+|   |   `-- get_cpu_info.py
+|   |-- http_connection_test
+|   |   |-- http_connection_test.md
+|   |   `-- http_connection_test.py
+|   |-- lambda_code_size
+|   |   |-- lambda_code_size.md
+|   |   `-- lambda_code_size.py
+|   |-- lambda_hyperplane_eni_checker
+|   |   |-- lambda_hyperplane_eni_checker.md
+|   |   `-- lambda_hyperplane_eni_checker.py
+|   |-- lambda_memory_plot
+|   |   |-- lambda_memory_plot.md
+|   |   `-- lambda_memory_plot.py
+|   |-- list_layer_info
+|   |   |-- list_layer_info.md
+|   |   `-- list_layer_info.py
+|   `-- reserved_concurrency
+|       |-- reserved_concurrency.md
+|       `-- reserved_concurrency.py
+|-- sns-samples
+|   |-- list_account_topic_subscriptions
+|   |   |-- list_account_topic_subscriptions.md
+|   |   `-- list_account_topic_subscriptions.py
+|   |-- sender_id
+|   |   |-- sender_id.md
+|   |   `-- sender_id.py
+|   |-- set_max_price
+|   |   |-- set_max_price.md
+|   |   `-- set_max_price.py
+|   `-- set_subscription_filters
+|       |-- set_subscription_filters.md
+|       `-- set_subscription_filters.py
+`-- tmp
+    `-- images
+        |-- AWSLambdaCloudWatchAsyncDelay.png
+        `-- AWSLambdaCloudWatchMetric.png
 ```
