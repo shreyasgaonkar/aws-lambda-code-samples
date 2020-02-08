@@ -76,13 +76,13 @@ $ tree
 |-- README.md
 |-- ec2-samples
 |   |-- describe_ami
-|   |   |-- describe_ami.md
+|   |   |-- README.md
 |   |   `-- describe_ami.py
 |   |-- describe_ec2_securitygroup
-|   |   |-- describe_ec2_securitygroup.md
+|   |   |-- README.md
 |   |   `-- describe_ec2_securitygroup.py
 |   `-- start_stop_ec2_instances_with_cloudwatch_event
-|       |-- start_stop_ec2_instances_with_cloudwatch_event.md
+|       |-- README.md
 |       `-- start_stop_ec2_instances_with_cloudwatch_event.py
 |-- lambda-layer
 |   |-- README.md
@@ -92,41 +92,41 @@ $ tree
 |   `-- requests.zip
 |-- lambda-samples
 |   |-- get_async_invoke_delay
-|   |   |-- get_async_invoke_delay.md
+|   |   |-- README.md
 |   |   `-- get_async_invoke_delay.py
 |   |-- get_cpu_info
-|   |   |-- get_cpu_info.md
+|   |   |-- README.md
 |   |   `-- get_cpu_info.py
 |   |-- http_connection_test
-|   |   |-- http_connection_test.md
+|   |   |-- README.md
 |   |   `-- http_connection_test.py
 |   |-- lambda_code_size
-|   |   |-- lambda_code_size.md
+|   |   |-- README.md
 |   |   `-- lambda_code_size.py
 |   |-- lambda_hyperplane_eni_checker
-|   |   |-- lambda_hyperplane_eni_checker.md
+|   |   |-- README.md
 |   |   `-- lambda_hyperplane_eni_checker.py
 |   |-- lambda_memory_plot
-|   |   |-- lambda_memory_plot.md
+|   |   |-- README.md
 |   |   `-- lambda_memory_plot.py
 |   |-- list_layer_info
-|   |   |-- list_layer_info.md
+|   |   |-- README.md
 |   |   `-- list_layer_info.py
 |   `-- reserved_concurrency
-|       |-- reserved_concurrency.md
+|       |-- README.md
 |       `-- reserved_concurrency.py
 |-- sns-samples
 |   |-- list_account_topic_subscriptions
-|   |   |-- list_account_topic_subscriptions.md
+|   |   |-- README.md
 |   |   `-- list_account_topic_subscriptions.py
 |   |-- sender_id
-|   |   |-- sender_id.md
+|   |   |-- README.md
 |   |   `-- sender_id.py
 |   |-- set_max_price
-|   |   |-- set_max_price.md
+|   |   |-- README.md
 |   |   `-- set_max_price.py
 |   `-- set_subscription_filters
-|       |-- set_subscription_filters.md
+|       |-- README.md
 |       `-- set_subscription_filters.py
 `-- tmp
     `-- images
