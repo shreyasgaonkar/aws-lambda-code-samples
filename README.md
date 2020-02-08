@@ -4,42 +4,42 @@ A  few of the sample AWS Lambda function codes for common use-cases with [Amazon
 
 ## EC2
 
-1. Start/Stop EC2 instances using CloudWatch Event Trigger  - [start_stop_ec2_instances_with_cloudwatch_event.py](ec2-samples/start_stop_ec2_instances_with_cloudwatch_event/start_stop_ec2_instances_with_cloudwatch_event.py)
+1. Start/Stop EC2 instances using CloudWatch Event Trigger  - [start_stop_ec2_instances_with_cloudwatch_event.py](ec2-samples/start_stop_ec2_instances_with_cloudwatch_event/)
 
-2. Describe EC2's metadata in a region - Associated subnets, Instance ID & NACL-ID for a target VPC - [describe_ec2_securitygroup.py](ec2-samples/describe_ec2_securitygroup/describe_ec2_securitygroup.py)
+2. Describe EC2's metadata in a region - Associated subnets, Instance ID & NACL-ID for a target VPC - [describe_ec2_securitygroup.py](ec2-samples/describe_ec2_securitygroup)
 
-3. Describe all AMIs for your account across all regions - [describe_ami.py](ec2-samples/describe_ami/describe_ami.py)
+3. Describe all AMIs for your account across all regions - [describe_ami.py](ec2-samples/describe_ami/)
 
 
 ## Lambda
 
-1. Get underlying Lambda's CPU hardware, /tmp storage, os-release and it's contents  - [get_cpu_info.py](lambda-samples/get_cpu_info/get_cpu_info.py)
+1. Get underlying Lambda's CPU hardware, /tmp storage, os-release and it's contents  - [get_cpu_info.py](lambda-samples/get_cpu_info/)
 
-2. Create "Memory Used" Metrics for your Lambda functions - [lambda_memory_plot.py](lambda-samples/lambda_memory_plot/lambda_memory_plot.py)
+2. Create "Memory Used" Metrics for your Lambda functions - [lambda_memory_plot.py](lambda-samples/lambda_memory_plot/)
 
-3. List all Lambda layers and it's info  - [list_layer_info.py](lambda-samples/list_layer_info/list_layer_info.py)
+3. List all Lambda layers and it's info  - [list_layer_info.py](lambda-samples/list_layer_info/)
 
-4. List code storage for all Lambda functions in a region - [lambda_code_size_including_layers.py](lambda-samples/lambda_code_size_all_functions/lambda_code_size_all_functions.py)
+4. List code storage for a function including all attached layers - [lambda_code_size_including_layers.py](lambda-samples/lambda_code_size_all_functions/)
 
-5. List code storage for a function including all attached layers - [lambda_code_size_including_layers.py](lambda-samples/lambda_code_size_including_layers/lambda_code_size_including_layers.py)
+5. List code storage for all Lambda functions in a region - [lambda_code_size_all_functions.py](lambda-samples/lambda_code_size_including_layers/)
 
-6. Get all functions using reserved or provisional concurrency in a region - [reserved_concurrency.py](lambda-samples/reserved_concurrency/reserved_concurrency.py)
+6. Get all functions using reserved or provisional concurrency in a region - [reserved_concurrency.py](lambda-samples/reserved_concurrency/)
 
-7. Test HTTP connection for your Lambda function inside VPC - [http_connection_test.py](lambda-samples/http_connection_test/http_connection_test.py)
+7. Test HTTP connection for your Lambda function inside VPC - [http_connection_test.py](lambda-samples/http_connection_test/)
 
-8. Check Async queue congestions and delays in processing async events - [get_async_invoke_delay.py](lambda-samples/get_async_invoke_delay/get_async_invoke_delay.py)
+8. Check Async queue congestions and delays in processing async events - [get_async_invoke_delay.py](lambda-samples/get_async_invoke_delay/)
 
-9. List Lambda function version(s) using an ENI - [lambda_hyperplane_eni_checker.py](lambda-samples/lambda_hyperplane_eni_checker/lambda_hyperplane_eni_checker.py)
+9. List Lambda function version(s) using an ENI - [lambda_hyperplane_eni_checker.py](lambda-samples/lambda_hyperplane_eni_checker/)
 
 ## SNS
 
-1. List all subscriptions tied to a topic in an account  - [list_account_topic_subscriptions.py](sns-samples/list_account_topic_subscriptions/list_account_topic_subscriptions.py)
+1. List all subscriptions tied to a topic in an account  - [list_account_topic_subscriptions.py](sns-samples/list_account_topic_subscriptions/)
 
-2. Programmatically create subscription filters for SNS  - [set_subscription_filters.py](sns-samples/set_subscription_filters/set_subscription_filters.py)
+2. Programmatically create subscription filters for SNS  - [set_subscription_filters.py](sns-samples/set_subscription_filters/)
 
-3. Programmatically set SenderID while sending SMS text messages  - [sender_id.py](sns-samples/sender_id/sender_id.py)
+3. Programmatically set SenderID while sending SMS text messages  - [sender_id.py](sns-samples/sender_id/)
 
-4. Programmatically set max price while sending SMS text messages - [set_max_price.py](sns-samples/set_max_price/set_max_price.py)
+4. Programmatically set max price while sending SMS text messages - [set_max_price.py](sns-samples/set_max_price_sms/)
 
 ## Additional Information
 
@@ -127,9 +127,9 @@ $ tree
 │   ├── sender_id
 │   │   ├── README.md
 │   │   └── sender_id.py
-│   ├── set_max_price
+│   ├── set_max_price_sms
 │   │   ├── README.md
-│   │   └── set_max_price.py
+│   │   └── set_max_price_sms.py
 │   └── set_subscription_filters
 │       ├── README.md
 │       └── set_subscription_filters.py
