@@ -10,8 +10,8 @@ def total_function_size(function_name, qualifier):
     layer_size = 0
 
     response = client.get_function(
-        FunctionName='numpy',
-        Qualifier='$LATEST'
+        FunctionName=function_name,
+        Qualifier=qualifier
     )
 
     total_size += response['Configuration']['CodeSize']
@@ -30,7 +30,7 @@ def total_function_size(function_name, qualifier):
 
 def lambda_handler(event, context):
 
-    function_name = 'numpy'
+    function_name = '<enter-function-name>'
     qualifier = '$LATEST'
 
     output = total_function_size(function_name, qualifier)
