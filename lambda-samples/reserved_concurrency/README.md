@@ -16,3 +16,19 @@ my_function_2: 5
 Provisioned concurrency:
 other_function: 50
 ```
+```
+Per function Reserved concurrency:
+
+my_function_1: 10
+my_function_2: 5
+Total reserved concurrency in <AWS_region> region is 15
+
+=====================
+
+Per qualifier Provisioned concurrency:
+
+other_function:1 - 10
+other_function:2 - 5
+other_function:dev - 50
+Total provisioned concurrency in <AWS_region> region is 65
+```
