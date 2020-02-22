@@ -1,5 +1,6 @@
 import json
 import boto3
+import os
 
 # Use paginator from:
 # https://boto3.amazonaws.com/v1/documentation/api/latest/guide/paginators.html#filtering-results
@@ -25,6 +26,7 @@ def get_provisioned_concurrency(function_name, qualifier):
 
     funct = {
         "Name": function_name,
+        "Qualifier": qualifier,
         "Provisioned Concurrency": response['AllocatedProvisionedConcurrentExecutions']
     }
 
@@ -32,9 +34,7 @@ def get_provisioned_concurrency(function_name, qualifier):
     provisioned_concurrency.add(funct)
 
 
-def lambda_handler(event, context):
-    """ Main function to retrieve reserved concurrency """
-
+def helper_function():
     # List all functions
     page_iterator = paginator.paginate()
     for page in page_iterator:
@@ -89,17 +89,31 @@ def lambda_handler(event, context):
                     # skip since none set
                     pass
 
-    print("Reserved concurrency:")
+
+def print_function():
+    print("Per function Reserved concurrency:\n")
+    count = 0
     for i in sorted(reserved_concurrency):
         i = json.loads(i)
-        print(f"{i['Name']}: {i['Reserved Concurrency']}")
+        print(f"{i['Name']} - {i['Reserved Concurrency']}")
+        count += i['Reserved Concurrency']
+    print(f"Total reserved concurrency in {os.environ['AWS_REGION']} region is {count}")
+    print("\n=====================\n")
 
-    print("=====================")
-
-    print("Provisioned concurrency:")
+    print("Per qualifier Provisioned concurrency:\n")
+    count = 0
     for i in sorted(provisioned_concurrency):
         i = json.loads(i)
-        print(f"{i['Name']}: {i['Provisioned Concurrency']}")
+        print(f"{i['Name']}:{i['Qualifier']} - {i['Provisioned Concurrency']}")
+        count += i['Provisioned Concurrency']
+    print(f"Total provisioned concurrency in {os.environ['AWS_REGION']} region is {count}")
+
+
+def lambda_handler(event, context):
+    """ Main function to retrieve reserved concurrency """
+
+    helper_function()
+    print_function()
 
     return {
         'statusCode': 200,
