@@ -9,14 +9,6 @@ This will iterate through all functions in a region (defaults to where Lambda re
 **Output**
 
 ```
-Reserved concurrency:
-my_function_1: 10
-my_function_2: 5
-=====================
-Provisioned concurrency:
-other_function: 50
-```
-```
 Per function Reserved concurrency:
 
 my_function_1: 10
