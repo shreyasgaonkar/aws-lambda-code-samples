@@ -16,21 +16,20 @@ def lambda_handler(event, context):
 
     # For CloudWatch Events:
     try:
-        delay = getSeconds(event['time'])
         source = 'cwe'
+        delay = getSeconds(event['time'], source)
     except KeyError as e:
         # Key not a part of the payload
         print(e)
         # For S3:
-        delay = getSeconds(event['Records'][0]['eventTime'])
         source = 's3'
+        delay = getSeconds(event['Records'][0]['eventTime'], source)
 
     # 'source' variable determines how the datetime object is disassembled in
     # getSeconds() function
 
-    delay = getSeconds(event['Records'][0]['eventTime'], source)
     print(f"Current Async delay is: {delay} seconds")
-    plotMetric(delay)
+    plotMetric(delay, context)
 
     return {
         'statusCode': 200,
@@ -49,7 +48,7 @@ def getSeconds(time, source):
     return((t2-t1).total_seconds())
 
 
-def plotMetric(delay):
+def plotMetric(delay, context):
     client.put_metric_data(
         Namespace='AWS/Lambda',
         MetricData=[
@@ -57,7 +56,7 @@ def plotMetric(delay):
                 'MetricName': 'Async Delay',
                 'Dimensions': [
                     {
-                        'Name': 'Async Delay',
+                        'Name': context.function_name,
                         'Value': 'Async Delay'
                     },
                 ],
