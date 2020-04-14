@@ -31,6 +31,8 @@ A  few of the sample AWS Lambda function codes for common use-cases with [Amazon
 
 9. List Lambda function version(s) using an ENI - [lambda_hyperplane_eni_checker.py](lambda-samples/lambda_hyperplane_eni_checker/)
 
+10. Get Lambda dashboard metrics across all regions - [lambda_dashboard.py](lambda-samples/lambda_dashboard/)
+
 ## SNS
 
 1. List all subscriptions tied to a topic in an account  - [list_account_topic_subscriptions.py](sns-samples/list_account_topic_subscriptions/)
