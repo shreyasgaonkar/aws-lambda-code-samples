@@ -42,22 +42,22 @@ def find_functions(eni_response):
         for function in functions:
             try:
                 # is this function in VPC?
-                if(function['VpcConfig']['VpcId']):
+                if function['VpcConfig']['VpcId']:
 
                     # Does the SG match?
-                    if(len(function['VpcConfig']['SecurityGroupIds']) == len(eni_response['Groups'])):
+                    if len(function['VpcConfig']['SecurityGroupIds']) == len(eni_response['Groups']):
 
                         # Sort and check if they match
                         eni_security_groups = [i['GroupId'] for i in eni_response['Groups']]
-                        if(eni_security_groups.sort() == function['VpcConfig']['SecurityGroupIds'].sort()):
+                        if eni_security_groups.sort() == function['VpcConfig']['SecurityGroupIds'].sort():
 
                             # is Lambda's subnet a part of ENI's subnet?
-                            if(eni_response['SubnetId'] in function['VpcConfig']['SubnetIds']):
+                            if eni_response['SubnetId'] in function['VpcConfig']['SubnetIds']:
                                 funct = json.dumps(function)
                                 allFunctions.add(funct)
 
-            except:
-                pass
+            except Exception as e:
+                print(e)
 
 
 def format_function(allFunctions, eni_response):
@@ -75,7 +75,7 @@ def lambda_handler(event, context):
     eni_response = eni_response['NetworkInterfaces']
 
     # ENI exists?
-    if(len(eni_response) > 0):
+    if len(eni_response) > 0:
         eni_response = eni_response[0]
 
         # Find and format function associated to this ENI

@@ -35,10 +35,11 @@ def message(instance_id, state, changed=0):
 
     # Changed parameter determines what message to return
     if changed != 0:
-        message = ("Instance {} is in {} state").format(instance_id, state)
+        return_message = ("Instance {} is in {} state").format(instance_id, state)
     else:
-        message = "No change for Instance# {}. Currently in {} state".format(instance_id, state)
-    return message
+        return_message = "No change for Instance# {}. Currently in {} state".format(
+            instance_id, state)
+    return return_message
 
 
 def toggle_state(instance_id, state):
@@ -51,14 +52,14 @@ def toggle_state(instance_id, state):
         if state == "stopped":
             final_result.append(message(instance_id, state))
             return True
-        else:
-            # stop instance
-            try:
-                client.stop_instances(InstanceIds=[instance_id])
-                final_result.append(message(instance_id, state, 1))
-                return True
-            except:
-                return False
+
+        # stop instance
+        try:
+            client.stop_instances(InstanceIds=[instance_id])
+            final_result.append(message(instance_id, state, 1))
+            return True
+        except Exception as e:
+            return False
 
     # If the time is in AM
     else:
@@ -71,7 +72,7 @@ def toggle_state(instance_id, state):
                 client.start_instances(InstanceIds=[instance_id])
                 final_result.append(message(instance_id, state, 1))
                 return True
-            except:
+            except Exception as e:
                 return False
 
 

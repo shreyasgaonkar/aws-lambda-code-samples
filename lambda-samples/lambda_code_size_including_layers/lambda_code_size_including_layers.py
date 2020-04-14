@@ -22,10 +22,10 @@ def total_function_size(function_name, qualifier):
             layer_size += i['CodeSize']
         print(f"Total layer size: {layer_size} bytes")
         total_size += layer_size
-    except:
-        pass
+    except Exception as e:
+        print(e)
 
-    return (round(total_size/1024, 2))
+    return round(total_size/1024, 2)
 
 
 def lambda_handler(event, context):
