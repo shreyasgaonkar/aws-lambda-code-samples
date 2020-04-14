@@ -1,6 +1,6 @@
 ## Lambda Hyperplane ENI checker
 
-[This function](lambda_hyperplane_eni_checker.py) checks against Lambda function(s) and its layers if they are using a particular ENI. If you come across ``` You are not allowed to manage 'ela-attach' attachments ``` error while trying to manually delete the ENI, this might be useful.
+[This function](lambda_hyperplane_eni_checker.py) checks against Lambda function(s) and its versions if they are using a particular ENI. If you come across ``` You are not allowed to manage 'ela-attach' attachments ``` error while trying to manually delete the ENI, this might be useful.
 
 Provide the input parameters:
 
