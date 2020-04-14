@@ -1,6 +1,7 @@
 import json
-import boto3
 import os
+import boto3
+
 
 # Use paginator from:
 # https://boto3.amazonaws.com/v1/documentation/api/latest/guide/paginators.html#filtering-results
@@ -54,9 +55,8 @@ def helper_function():
                 funct = json.dumps(funct)
                 reserved_concurrency.add(funct)
 
-            except:
-                # Skip since no Reserved Concurrency
-                pass
+            except Exception as e:
+                print(e)
 
     # Check for provisioned concurrency under alias and/or versions
     page_iterator = paginator.paginate(**operation_parameters)
@@ -64,7 +64,7 @@ def helper_function():
         functions = page['Functions']
 
         for function in functions:
-            if(function['Version'] != '$LATEST'):
+            if function['Version'] != '$LATEST':
                 # Try if get_provisioned_concurrency_config SDK call succeeds
                 try:
                     # Try for alias
@@ -79,15 +79,14 @@ def helper_function():
 
                         for i in aliases:
                             get_provisioned_concurrency(function['FunctionName'], i)
-                    except:
-                        pass
+                    except Exception as e:
+                        print(e)
 
                     get_provisioned_concurrency(function['FunctionName'], function['Version'])
 
-                except:
+                except Exception as e:
                     # ProvisionedConcurrencyConfigNotFoundException error
-                    # skip since none set
-                    pass
+                    print(e)
 
 
 def print_function():
