@@ -26,3 +26,7 @@ Sample output:
 |   us-west-2    |        300         |   951.5 MB   |         1000         |           900          |
 +----------------+--------------------+--------------+----------------------+------------------------+
 ```
+
+Once the table has been created, you can [sort using field](https://github.com/jazzband/prettytable#sorting-your-table-by-a-field) while printing:
+
+``` print(TABLE.get_string(sortby="Code Storage", reversesort=True)) ```
