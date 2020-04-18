@@ -1,43 +1,64 @@
 import json
 import boto3
 
-client = boto3.client('lambda')
+# imported from Lambda layer
+from prettytable import PrettyTable
+
+CLIENT = boto3.client('lambda')
+
+FUNCTION_NAME = '<enter-function-name>'
+QUALIFIER = '$LATEST'
+
+# PrettyTable
+TABLE = PrettyTable()
 
 
-def total_function_size(function_name, qualifier):
+def format_size(size):
+    """ Format into byes, KB, MB & GB """
 
+    power = 2**10
+    i = 0
+    power_labels = {0: 'bytes', 1: 'KB', 2: 'MB', 3: 'GB'}
+    while size > power:
+        size /= power
+        i += 1
+    return f"{round(size, 2)} {power_labels[i]}"
+
+
+def total_function_size(FUNCTION_NAME, QUALIFIER):
+    """ Get function metadata """
     total_size = 0
     layer_size = 0
 
-    response = client.get_function(
-        FunctionName=function_name,
-        Qualifier=qualifier
+    response = CLIENT.get_function(
+        FunctionName=FUNCTION_NAME,
+        Qualifier=QUALIFIER
     )
 
     total_size += response['Configuration']['CodeSize']
-    print(f"Total code size: {total_size} bytes")
+    TABLE.add_column("Code Size", [format_size(total_size)])
 
     try:
         for i in response['Configuration']['Layers']:
             layer_size += i['CodeSize']
-        print(f"Total layer size: {layer_size} bytes")
+        TABLE.add_column("Layer Size", [format_size(layer_size)])
         total_size += layer_size
     except Exception as e:
         print(e)
 
-    return round(total_size/1024, 2)
+    return total_size
 
 
 def lambda_handler(event, context):
+    """ Main function """
 
-    function_name = '<enter-function-name>'
-    qualifier = '$LATEST'
+    total_size = total_function_size(FUNCTION_NAME, QUALIFIER)
+    TABLE.add_column("Total function size", [format_size(total_size)])
 
-    output = total_function_size(function_name, qualifier)
-
-    print(f"Total function size including layers: {output} MB")
+    print(f"Total function size for function: {FUNCTION_NAME}:{QUALIFIER} version")
+    print(TABLE)
 
     return {
         'statusCode': 200,
-        'body': json.dumps(f'Total function size for function: {function_name} including layers: {output} MB')
+        'body': json.dumps(f'Total function size for function: {FUNCTION_NAME} including layers: {total_size} MB')
     }
