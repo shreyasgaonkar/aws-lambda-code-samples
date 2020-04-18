@@ -57,6 +57,9 @@ def lambda_handler(event, context):
                        CONCURRENCY[i], UNRESERVED_CONCURRENCY[i]])
     print(TABLE)
 
+    # Print by sorting a field from the table with optional reversesort flag:
+    # print(TABLE.get_string(sortby="Code Storage", reversesort=True))
+
     return {
         'statusCode': 200,
         'body': json.dumps('Hello from Lambda!')
