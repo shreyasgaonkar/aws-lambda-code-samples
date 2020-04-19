@@ -13,4 +13,4 @@ If any of the downstream supports X-Ray tracing passthrough, those traces will a
 
 #### Sample X-ray trace:
 
-![Lambda Metrics](/tmp/images/AWSLambdaX-Ray.png)
+![Lambda Metrics](/tmp/images/AWSLambdaX-Ray.PNG)
