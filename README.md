@@ -1,6 +1,6 @@
 # AWS Lambda sample codes [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/shreyasgaonkar/aws-lambda-code-samples.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/shreyasgaonkar/aws-lambda-code-samples/context:python)
 
-A  few of the sample AWS Lambda function codes for common use-cases with [Amazon EC2](https://github.com/shreyasgaonkar/aws-lambda-code-samples#ec2), [AWS Lambda](https://github.com/shreyasgaonkar/aws-lambda-code-samples#lambda) & [Amazon SNS](https://github.com/shreyasgaonkar/aws-lambda-code-samples#sns).
+A few of the sample AWS Lambda function codes for common use-cases with [Amazon EC2](https://github.com/shreyasgaonkar/aws-lambda-code-samples#ec2), [AWS Lambda](https://github.com/shreyasgaonkar/aws-lambda-code-samples#lambda) & [Amazon SNS](https://github.com/shreyasgaonkar/aws-lambda-code-samples#sns).
 
 ## EC2
 
@@ -73,6 +73,8 @@ This is an iterative repository, I'll keep adding more sample codes for more use
     - Commit repo using the [Seven Rules](https://chris.beams.io/posts/git-commit/#seven-rules)
 - Your PR gets merged :white_check_mark: and a shoutout :loudspeaker:
 
+## Looking for CLI samples?
+- Head to https://github.com/shreyasgaonkar/aws-cli-code-samples
 
 #### Repo structure:
 
