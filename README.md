@@ -45,6 +45,8 @@ A  few of the sample AWS Lambda function codes for common use-cases with [Amazon
 
 4. Programmatically set max price while sending SMS text messages - [set_max_price.py](sns-samples/set_max_price_sms/)
 
+5. Get SMS month to date spend in USD - [sms_month_to_date_spent_usd.py](sns-samples/sms_month_to_date_spent_usd/)
+
 ## Additional Information
 
 - Refer to the individual .md files for additional information.
@@ -142,9 +144,12 @@ $ tree
 |   |-- set_max_price_sms
 |   |   |-- README.md
 |   |   `-- set_max_price_sms.py
-|   `-- set_subscription_filters
-|       |-- README.md
-|       `-- set_subscription_filters.py
+|   |-- set_subscription_filters
+|   |   |-- README.md
+|   |   `-- set_subscription_filters.py
+|   `-- sms_month_to_date_spent_usd
+|       |-- README
+|       `-- sms_month_to_date_spent_usd.py
 `-- tmp
     `-- images
         |-- AWSLambdaCloudWatchAsyncDelay.png
