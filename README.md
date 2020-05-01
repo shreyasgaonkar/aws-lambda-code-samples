@@ -154,9 +154,6 @@ $ tree
 |   |-- set_subscription_filters
 |   |   |-- README.md
 |   |   `-- set_subscription_filters.py
-|   |-- sms_dashboard
-|   |   |-- README.md
-|   |   `-- sms_dashboard.sh
 |   `-- sms_month_to_date_spent_usd
 |       |-- README.md
 |       `-- sms_month_to_date_spent_usd.py
