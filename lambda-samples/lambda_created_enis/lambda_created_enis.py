@@ -1,4 +1,3 @@
-import json
 import boto3
 
 # PrettyTable for output
@@ -14,8 +13,9 @@ FILTERED_ITERATOR = PAGE_ITERATOR.search(
     "NetworkInterfaces[?Status!=`null`] | [?contains(Description, `AWS Lambda VPC ENI`)] | [?contains(Attachment.AttachmentId, `ela-attach`)]")
 
 
-def print_table(FILTERED_ITERATOR):
-    for value in FILTERED_ITERATOR:
+def print_table(enis):
+    """ helper function """
+    for value in enis:
         security_groups = []
         for i in value['Groups']:
             security_groups.append(i['GroupId'])
@@ -28,9 +28,9 @@ def print_table(FILTERED_ITERATOR):
 
 
 def lambda_handler(event, context):
+    """ Main function """
 
     print_table(FILTERED_ITERATOR)
-
     return {
         'statusCode': 200,
         'body': "See function logs"
