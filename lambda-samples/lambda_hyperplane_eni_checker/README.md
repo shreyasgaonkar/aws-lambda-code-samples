@@ -22,3 +22,5 @@ arn:aws:lambda:us-west-2:XXXXXXXXXXXX:function:ThisFunctionDoesNothing:$LATEST
 
 
 ```
+
+Looking for an inverse use-case? Try [lambda_created_enis](../lambda_created_enis/)
