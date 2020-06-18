@@ -107,6 +107,9 @@ $ tree
 │   ├── requests.zip
 │   └── x-ray.zip
 ├── lambda-samples
+│   ├── extract_deployment_package_without_layers
+│   │   ├── README.md
+│   │   └── extract_deployment_package_without_layers.py
 │   ├── get_async_invoke_delay
 │   │   ├── README.md
 │   │   └── get_async_invoke_delay.py
