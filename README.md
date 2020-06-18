@@ -37,7 +37,9 @@ A few of the sample AWS Lambda function codes for common use-cases with [Amazon 
 
 12. Lambda X-Ray examples - [lambda_dashboard.py](lambda-samples/x_ray_sample/)
 
-12. Delete orphaned Event Source Mappings - [clean_orphaned_event_source_mappings.py](lambda-samples/clean_orphaned_event_source_mappings/)
+13. Delete orphaned Event Source Mappings - [clean_orphaned_event_source_mappings.py](lambda-samples/clean_orphaned_event_source_mappings/)
+
+14. Extract Lambda code from entire deployment package - [extract_deployment_package_without_layers](lambda-samples/extract_deployment_package_without_layers/)
 
 ## SNS
 
