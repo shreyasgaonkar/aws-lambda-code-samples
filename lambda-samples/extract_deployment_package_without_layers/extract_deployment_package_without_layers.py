@@ -1,6 +1,5 @@
 import os
 import urllib.request
-import zipfile
 import filecmp
 from zipfile import ZipFile
 import logging
@@ -39,7 +38,7 @@ def get_deploymentpackage(function_name):
 
     # Download and extract file at /tmp
     urllib.request.urlretrieve(url, file)
-    with zipfile.ZipFile(file, 'r') as zip_ref:
+    with ZipFile(file, 'r') as zip_ref:
         zip_ref.extractall(TMP_DEPLOYMENT_PACKAGE)
 
     ##
@@ -57,7 +56,7 @@ def get_deploymentpackage(function_name):
 
         # Download and extract file at /tmp
         urllib.request.urlretrieve(layer_url, layer_file)
-        with zipfile.ZipFile(layer_file, 'r') as zip_ref:
+        with ZipFile(layer_file, 'r') as zip_ref:
             zip_ref.extractall(TMP_LAYER_PACKAGE)
 
     # Layers are added under "python" directory: imp for the next step
