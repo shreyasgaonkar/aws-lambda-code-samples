@@ -53,6 +53,8 @@ A few of the sample AWS Lambda function codes for common use-cases with [Amazon 
 
 5. Get SMS month to date spend in USD - [sms_month_to_date_spent_usd.py](sns-samples/sms_month_to_date_spent_usd/)
 
+6. SMS Dashboard - [sms_dashboard.py](sns-samples/sms_dashboard/)
+
 ## Additional Information
 
 - Refer to the individual .md files for additional information.
@@ -87,86 +89,92 @@ This is an iterative repository, I'll keep adding more sample codes for more use
 ```bash
 $ tree
 .
-├── CODE_OF_CONDUCT.md
-├── LICENSE
-├── README.md
-├── ec2-samples
-│   ├── describe_ami
-│   │   ├── README.md
-│   │   └── describe_ami.py
-│   ├── describe_ec2_securitygroup
-│   │   ├── README.md
-│   │   └── describe_ec2_securitygroup.py
-│   └── start_stop_ec2_instances_with_cloudwatch_event
-│       ├── README.md
-│       └── start_stop_ec2_instances_with_cloudwatch_event.py
-├── lambda-layer
-│   ├── README.md
-│   ├── boto3.zip
-│   ├── pandasnumpy.zip
-│   ├── prettyTable.zip
-│   ├── psycopg2.zip
-│   ├── requests.zip
-│   └── x-ray.zip
-├── lambda-samples
-│   ├── extract_deployment_package_without_layers
-│   │   ├── README.md
-│   │   └── extract_deployment_package_without_layers.py
-│   ├── get_async_invoke_delay
-│   │   ├── README.md
-│   │   └── get_async_invoke_delay.py
-│   ├── get_cpu_info
-│   │   ├── README.md
-│   │   └── get_cpu_info.py
-│   ├── http_connection_test
-│   │   ├── README.md
-│   │   └── http_connection_test.py
-│   ├── lambda_code_size_all_functions
-│   │   ├── README.md
-│   │   └── lambda_code_size_all_functions.py
-│   ├── lambda_code_size_including_layers
-│   │   ├── README.md
-│   │   └── lambda_code_size_including_layers.py
-│   ├── lambda_created_enis
-│   │   ├── README.md
-│   │   └── lambda_created_enis.py
-│   ├── lambda_dashboard
-│   │   ├── README.md
-│   │   └── lambda_dashboard.py
-│   ├── lambda_hyperplane_eni_checker
-│   │   ├── README.md
-│   │   └── lambda_hyperplane_eni_checker.py
-│   ├── lambda_memory_plot
-│   │   ├── README.md
-│   │   └── lambda_memory_plot.py
-│   ├── list_layer_info
-│   │   ├── README.md
-│   │   └── list_layer_info.py
-│   ├── reserved_concurrency
-│   │   ├── README.md
-│   │   └── reserved_concurrency.py
-│   └── x_ray_sample
-│       ├── README.md
-│       └── x_ray_sample.py
-├── sns-samples
-│   ├── list_account_topic_subscriptions
-│   │   ├── README.md
-│   │   └── list_account_topic_subscriptions.py
-│   ├── sender_id
-│   │   ├── README.md
-│   │   └── sender_id.py
-│   ├── set_max_price_sms
-│   │   ├── README.md
-│   │   └── set_max_price_sms.py
-│   ├── set_subscription_filters
-│   │   ├── README.md
-│   │   └── set_subscription_filters.py
-│   └── sms_month_to_date_spent_usd
-│       ├── README.md
-│       └── sms_month_to_date_spent_usd.py
-└── tmp
-    └── images
-        ├── AWSLambdaCloudWatchAsyncDelay.png
-        ├── AWSLambdaCloudWatchMetric.png
-        └── AWSLambdaX-Ray.PNG
+|-- CODE_OF_CONDUCT.md
+|-- LICENSE
+|-- README.md
+|-- ec2-samples
+|   |-- describe_ami
+|   |   |-- README.md
+|   |   `-- describe_ami.py
+|   |-- describe_ec2_securitygroup
+|   |   |-- README.md
+|   |   `-- describe_ec2_securitygroup.py
+|   `-- start_stop_ec2_instances_with_cloudwatch_event
+|       |-- README.md
+|       `-- start_stop_ec2_instances_with_cloudwatch_event.py
+|-- lambda-layer
+|   |-- README.md
+|   |-- boto3.zip
+|   |-- pandasnumpy.zip
+|   |-- prettyTable.zip
+|   |-- psycopg2.zip
+|   |-- requests.zip
+|   `-- x-ray.zip
+|-- lambda-samples
+|   |-- clean_orphaned_event_source_mappings
+|   |   |-- README.md
+|   |   `-- clean_orphaned_event_source_mappings.py
+|   |-- extract_deployment_package_without_layers
+|   |   |-- README.md
+|   |   `-- extract_deployment_package_without_layers.py
+|   |-- get_async_invoke_delay
+|   |   |-- README.md
+|   |   `-- get_async_invoke_delay.py
+|   |-- get_cpu_info
+|   |   |-- README.md
+|   |   `-- get_cpu_info.py
+|   |-- http_connection_test
+|   |   |-- README.md
+|   |   `-- http_connection_test.py
+|   |-- lambda_code_size_all_functions
+|   |   |-- README.md
+|   |   `-- lambda_code_size_all_functions.py
+|   |-- lambda_code_size_including_layers
+|   |   |-- README.md
+|   |   `-- lambda_code_size_including_layers.py
+|   |-- lambda_created_enis
+|   |   |-- README.md
+|   |   `-- lambda_created_enis.py
+|   |-- lambda_dashboard
+|   |   |-- README.md
+|   |   `-- lambda_dashboard.py
+|   |-- lambda_hyperplane_eni_checker
+|   |   |-- README.md
+|   |   `-- lambda_hyperplane_eni_checker.py
+|   |-- lambda_memory_plot
+|   |   |-- README.md
+|   |   `-- lambda_memory_plot.py
+|   |-- list_layer_info
+|   |   |-- README.md
+|   |   `-- list_layer_info.py
+|   |-- reserved_concurrency
+|   |   |-- README.md
+|   |   `-- reserved_concurrency.py
+|   `-- x_ray_sample
+|       |-- README.md
+|       `-- x_ray_sample.py
+|-- sns-samples
+|   |-- list_account_topic_subscriptions
+|   |   |-- README.md
+|   |   `-- list_account_topic_subscriptions.py
+|   |-- sender_id
+|   |   |-- README.md
+|   |   `-- sender_id.py
+|   |-- set_max_price_sms
+|   |   |-- README.md
+|   |   `-- set_max_price_sms.py
+|   |-- set_subscription_filters
+|   |   |-- README.md
+|   |   `-- set_subscription_filters.py
+|   |-- sms_dashboard
+|   |   |-- README.md
+|   |   `-- sms_dashboard.py
+|   `-- sms_month_to_date_spent_usd
+|       |-- README.md
+|       `-- sms_month_to_date_spent_usd.py
+`-- tmp
+    `-- images
+        |-- AWSLambdaCloudWatchAsyncDelay.png
+        |-- AWSLambdaCloudWatchMetric.png
+        `-- AWSLambdaX-Ray.PNG
 ```
