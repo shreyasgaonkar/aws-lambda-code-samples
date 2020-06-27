@@ -1,4 +1,4 @@
-[sms_dashboard.py](sms_dashboard.py.py) will provide you additional insights on your SMS usage for a month pulling data from SMS Usage Reports stored in Amazon S3. Once enable, this script will pull a month's data (defaults to current month), extracts the **total parts**, **message types**, and the **mobile endpoint** where SMS were sent; and displays in a tabular dashboard using PrettyTable (can be added as a Lambda layer from [here](/lambda-layer/prettyTable.zip)).
+[sms_dashboard.py](sms_dashboard.py.py) will provide you additional insights on your SMS usage for a month pulling data from SMS Usage Reports stored in Amazon S3. Once enable, this script will pull a month's data (defaults to current month), extracts the **total parts**, **message types**, and the **mobile endpoint** where SMS were sent; and displays in a tabular dashboard using PrettyTable (can be added as a Lambda layer from [here](/lambda-layer/)).
 
 By default, this will use the current AWS region, month and year, but can be overridden to use specific month/year by changing:
 ```
