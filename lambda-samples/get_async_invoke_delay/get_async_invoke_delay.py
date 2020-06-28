@@ -1,6 +1,6 @@
 import datetime
 import boto3
-client = boto3.client('cloudwatch')
+CW_CLIENT = boto3.client('cloudwatch')
 
 
 def lambda_handler(event, context):
@@ -17,19 +17,19 @@ def lambda_handler(event, context):
     # For CloudWatch Events:
     try:
         source = 'cwe'
-        delay = getSeconds(event['time'], source)
+        delay = get_seconds(event['time'], source)
     except KeyError as e:
         # Key not a part of the payload
         print(e)
         # For S3:
         source = 's3'
-        delay = getSeconds(event['Records'][0]['eventTime'], source)
+        delay = get_seconds(event['Records'][0]['eventTime'], source)
 
     # 'source' variable determines how the datetime object is disassembled in
     # getSeconds() function
 
     print(f"Current Async delay is: {delay} seconds")
-    plotMetric(delay, context)
+    plot_metric(delay, context)
 
     return {
         'statusCode': 200,
@@ -37,19 +37,19 @@ def lambda_handler(event, context):
     }
 
 
-def getSeconds(time, source):
-
-    if(source == 's3'):
+def get_seconds(time, source):
+    """Return the deplay in seconds"""
+    if source == 's3':
         t1 = (datetime.datetime.strptime(time, '%Y-%m-%dT%H:%M:%SZ'))
     else:
         t1 = (datetime.datetime.strptime(time, '%Y-%m-%dT%H:%M:%S.%fZ'))
-
     t2 = (datetime.datetime.utcnow())
-    return((t2-t1).total_seconds())
+    return (t2-t1).total_seconds()
 
 
-def plotMetric(delay, context):
-    client.put_metric_data(
+def plot_metric(delay, context):
+    """Plot custom CloudWatch Metric"""
+    CW_CLIENT.put_metric_data(
         Namespace='AWS/Lambda',
         MetricData=[
             {
