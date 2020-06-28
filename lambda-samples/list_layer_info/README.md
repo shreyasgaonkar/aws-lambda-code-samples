@@ -1,25 +1,24 @@
 ```list_layer_info.py``` will iterate through all layers and it's versions to return information about the layer. Function uses [Paginators](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#paginators) to iterate through all layers, and it's versions.
 
-Function output:
+Uses [PrettyTable](https://pypi.org/project/PrettyTable/) module imported as a Lambda layer from [here](/lambda-layer/).
 
-```JSON
-...
-{
-    "LayerArn": "arn:aws:lambda:us-west-2:XXXXXXXXXXXX:layer:my_lambda_layer",
-    "Version": 5,
-    "CodeSize": 27780,
-    "Compatible Runtimes": [
-        "java8",
-        "python2.7",
-        "python3.6",
-        "python3.7"
-    ]
-}
-...
+### Output:
+
+```
++-------------------------------------------------------+-----------+-----------------+-------------------------------------------------------+
+|                       LayerARN                        |  Version  |  CodeSize (MB)  |                  Compatible Runtimes                  |
++-------------------------------------------------------+-----------+-----------------+-------------------------------------------------------+
+| arn:aws:lambda:us-west-2:XXXXXXXXXXXX:layer:Jython    |        1  |           0.03  |  ['java8', 'python2.7', 'python3.6', 'python3.7']     |
+| arn:aws:lambda:us-west-2:XXXXXXXXXXXX:layer:X-Ray     |        2  |           9.09  |  ['python2.7', 'python3.6', 'python3.7', 'python3.8'] |
+| arn:aws:lambda:us-west-2:XXXXXXXXXXXX:layer:X-Ray     |        1  |           9.14  |  ['python2.7', 'python3.6', 'python3.7', 'python3.8'] |
+| arn:aws:lambda:us-west-2:XXXXXXXXXXXX:layer:requests  |        1  |           0.95  |  ['python2.7', 'python3.6', 'python3.7']              |
++-------------------------------------------------------+-----------+-----------------+-------------------------------------------------------+
 ```
 
----
+#### Additional Context:
+
 Response of ```list_layer_versions()```:
+
 ```JSON
 {
     "LayerVersionArn": "arn:aws:lambda:us-west-2:XXXXXXXXXXXX:layer:my_lambda_layer:5",
