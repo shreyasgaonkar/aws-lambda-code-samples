@@ -6,7 +6,7 @@ from prettytable import PrettyTable
 
 CLIENT = boto3.client('lambda')
 
-# Update the Function name and the Qualier (Version/Alias)
+# Update the Function name and the Qualifier (Version/Alias)
 
 FUNCTION_NAME = '<enter-function-name>'
 QUALIFIER = '$LATEST'

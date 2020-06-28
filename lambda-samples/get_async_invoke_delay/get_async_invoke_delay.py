@@ -38,7 +38,7 @@ def lambda_handler(event, context):
 
 
 def get_seconds(time, source):
-    """Return the deplay in seconds"""
+    """Return the delay in seconds"""
     if source == 's3':
         t1 = (datetime.datetime.strptime(time, '%Y-%m-%dT%H:%M:%SZ'))
     else:
