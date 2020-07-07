@@ -31,12 +31,15 @@ def lambda_handler(event, context):
     print("\n")
     # Get more info about the underlying processor
     print("cat /etc/os-release: ")
-    print(subprocess.check_output(['cat', '/etc/os-release']))
+    print(subprocess.check_output(['cat', '/etc/os-release']).decode("utf-8"))
+
+    print("uname -a: ")
+    print(subprocess.check_output(['uname', '-a']).decode("utf-8"))
 
     print("\n")
 
-    print("uname -a: ")
-    print(subprocess.check_output(['uname', '-a']))
+    print("cat /proc/cpuinfo: ")
+    print(subprocess.check_output(["cat", "/proc/cpuinfo"]).decode("utf-8"))
 
     return {
         'statusCode': 200,
