@@ -1,4 +1,4 @@
-# AWS Lambda sample codes [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/shreyasgaonkar/aws-lambda-code-samples.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/shreyasgaonkar/aws-lambda-code-samples/context:python)
+# AWS Lambda sample codes [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/shreyasgaonkar/aws-lambda-code-samples.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/shreyasgaonkar/aws-lambda-code-samples/context:python) [![HitCount](http://hits.dwyl.com/shreyasgaonkar/aws-lambda-code-samples.svg)](http://hits.dwyl.com/shreyasgaonkar/aws-lambda-code-samples)
 
 A few of the sample AWS Lambda function codes for common use-cases with [Amazon EC2](https://github.com/shreyasgaonkar/aws-lambda-code-samples#ec2), [AWS Lambda](https://github.com/shreyasgaonkar/aws-lambda-code-samples#lambda) & [Amazon SNS](https://github.com/shreyasgaonkar/aws-lambda-code-samples#sns).
 
@@ -109,6 +109,9 @@ $ tree
 │   ├── requests.zip
 │   └── x-ray.zip
 ├── lambda-samples
+│   ├── clean_orphaned_event_source_mappings
+│   │   ├── README.md
+│   │   └── clean_orphaned_event_source_mappings.py
 │   ├── extract_deployment_package_without_layers
 │   │   ├── README.md
 │   │   └── extract_deployment_package_without_layers.py
