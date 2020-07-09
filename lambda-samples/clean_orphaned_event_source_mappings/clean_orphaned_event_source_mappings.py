@@ -2,7 +2,19 @@ import json
 import os
 import boto3
 
-LAMBDA_CLIENT = boto3.client('lambda', region_name='us-east-1')
+# ==================
+# Override AWS Region below, otherwise will use Lambda function's region
+
+# REGION_NAME = 'us-east-1'
+# ==================
+
+try:
+    REGION_NAME
+except NameError:
+    REGION_NAME = os.environ['AWS_REGION']
+
+LAMBDA_CLIENT = boto3.client('lambda', region_name=REGION_NAME)
+
 
 # Paginator to loop over paginated API calls
 LIST_FUNCTIONS_PAGINATOR = LAMBDA_CLIENT.get_paginator('list_functions')
@@ -49,7 +61,7 @@ def lambda_handler(event, context):
     if DELETED_ESM:
         body = "See logs for deleted Event Source Mappings"
     else:
-        body = f"No orphaned Event Source mappings found in {os.environ['AWS_REGION']}"
+        body = f"No orphaned Event Source mappings found in {REGION_NAME}"
     return {
         'statusCode': 200,
         'body': json.dumps(body)

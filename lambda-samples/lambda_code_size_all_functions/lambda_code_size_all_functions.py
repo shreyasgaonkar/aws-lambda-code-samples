@@ -5,19 +5,19 @@ import boto3
 # https://boto3.amazonaws.com/v1/documentation/api/latest/guide/paginators.html#filtering-results
 # to call recursively on the same API call if next token is returned.
 
-client = boto3.client('lambda')
-paginator = client.get_paginator('list_functions')
+LAMBDA_CLIENT = boto3.client('lambda')
+PAGINATOR = LAMBDA_CLIENT.get_paginator('list_functions')
 
 # Make sure ALL versions are returned
-operation_parameters = {'FunctionVersion': 'ALL'}
+OPERATION_PARAMETERS = {'FunctionVersion': 'ALL'}
 
 # Create an empty set to dump all the individual function's data
-allFunctions = set()
+ALL_FUNCTIONS = set()
 
 
 def lambda_handler(event, context):
-
-    page_iterator = paginator.paginate(**operation_parameters)
+    """Main Function"""
+    page_iterator = PAGINATOR.paginate(**OPERATION_PARAMETERS)
     for page in page_iterator:
         functions = page['Functions']
 
@@ -29,10 +29,10 @@ def lambda_handler(event, context):
             }
 
             funct = json.dumps(funct)
-            allFunctions.add(funct)
+            ALL_FUNCTIONS.add(funct)
 
     total = 0
-    for i in sorted(allFunctions):
+    for i in sorted(ALL_FUNCTIONS):
         i = json.loads(i)
         print("{function:48}:{version:8} {size:,.2f}".format(
             function=i['Name'], version=i['Version'], size=i['CodeSize']))

@@ -6,8 +6,8 @@ Provide the input parameters:
 
 ```python
 ...
-region = 'us-west-2'
-eni_name = 'eni-XXXXXXXXXXXXXXXXX'
+REGION_NAME = 'us-west-2'
+ENI_ID = 'eni-XXXXXXXXXXXXXXXXX'
 ...
 
 ```
@@ -19,7 +19,6 @@ Lambda function(s) using ENI: eni-XXXXXXXXXXXXXXXXX:
 
 arn:aws:lambda:us-west-2:XXXXXXXXXXXX:function:LambdaconnectingtoLambda2:$LATEST
 arn:aws:lambda:us-west-2:XXXXXXXXXXXX:function:ThisFunctionDoesNothing:$LATEST
-
 
 ```
 

@@ -53,6 +53,8 @@ A few of the sample AWS Lambda function codes for common use-cases with [Amazon 
 
 5. Get SMS month to date spend in USD - [sms_month_to_date_spent_usd.py](sns-samples/sms_month_to_date_spent_usd/)
 
+6. SMS Dashboard - [sms_dashboard.py](sns-samples/sms_dashboard/)
+
 ## Additional Information
 
 - Refer to the individual .md files for additional information.
