@@ -13,7 +13,7 @@ TIME_DELTA = datetime.timedelta(hours=1)
 TODAY = datetime.date.today()
 YESTERDAY = datetime.datetime(TODAY.year, TODAY.month, TODAY.day) - TIME_DELTA
 TODAY = datetime.datetime(TODAY.year, TODAY.month, TODAY.day)
-REGIONS = ['us-east-1', 'us-west-2', 'us-gov-west-1', 'eu-central-1', 'eu-west-1',
+REGIONS = ['us-east-1', 'us-west-1', 'us-west-2', 'us-gov-west-1', 'eu-central-1', 'eu-west-1',
            'ap-northeast-1', 'ap-south-1', 'ap-southeast-1', 'ap-southeast-2']
 # Regions from: https://docs.aws.amazon.com/sns/latest/dg/sns-supported-regions-countries.html
 
