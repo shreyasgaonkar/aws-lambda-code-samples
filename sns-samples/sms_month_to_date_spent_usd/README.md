@@ -9,6 +9,7 @@ If your account doesn't support [AWS GovCloud (US) Access](https://aws.amazon.co
 |     Region     |          MonthlySpendLimit ($)           |          SMSMonthToDateSpentUSD          |
 +----------------+------------------------------------------+------------------------------------------+
 |   us-east-1    |                    10                    |                    0                     |
+|   us-west-1    |                    10                    |                    0                     |
 |   us-west-2    |                    5                     |                 1.61379                  |
 | us-gov-west-1  | Account not configured for us-gov-west-1 | Account not configured for us-gov-west-1 |
 |  eu-central-1  |               Default: $1                |                    0                     |
