@@ -2,3 +2,21 @@ At times we might have to use sender id to let the end user know that message or
 
 
 > [AWS documentation](https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-countries.html) for SenderIds would be the best way to get the latest information regarding supported countries, and any sender id requirements.
+
+### Output:
+
+#### Success:
+```json
+{
+  "statusCode": 200,
+  "body": "Success. Message sent to +1XXXXXXXXXX"
+}
+```
+
+#### Error:
+```json
+{
+  "statusCode": 200,
+  "body": "Not a valid phone endpoint type. Supported messages types: Mobile/Prepaid. Skipping sending message to +1XXXXXXXXXX"
+}
+```
