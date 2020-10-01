@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import json
 import boto3
 
 
@@ -28,23 +27,32 @@ def send_message(number, message):
 
 def lambda_handler(event, context):
     """ Main Lambda function """
-
-    response = PINPOINT.phone_number_validate(
-        NumberValidateRequest={
-            'PhoneNumber': MOBILE_ENDPOINT
-        }
-    )
-
-    # Validate the endpoint before sending the message
     try:
-        if response['NumberValidateResponse']['PhoneType'].lower() in ['mobile', 'prepaid']:
-            send_message(number=MOBILE_ENDPOINT, message=MESSAGE)
-            response_body = f"Success. Message sent to {MOBILE_ENDPOINT}"
+        response = PINPOINT.phone_number_validate(
+            NumberValidateRequest={
+                'PhoneNumber': MOBILE_ENDPOINT
+            }
+        )
+    except PINPOINT.exceptions.BadRequestException:
+        response_body = f"Not a valid phone endpoint. Skipping sending message to {MOBILE_ENDPOINT}"
 
-    except Exception as exp:
-        response_body = f"Message not sent to {MOBILE_ENDPOINT}. Couldn't Validate the endpoint. Exception: {exp}"
-        print(exp)
+    except Exception as error:
+        response_body = f"Something went wrong. Error: {error}"
+
+    else:
+        # Validate the endpoint before sending the message
+        try:
+            if response['NumberValidateResponse']['PhoneType'].lower() in ['mobile', 'prepaid']:
+                send_message(number=MOBILE_ENDPOINT, message=MESSAGE)
+                response_body = f"Success. Message sent to {MOBILE_ENDPOINT}"
+            else:
+                response_body = f"Not a valid phone endpoint type. Supported messages types: Mobile/Prepaid. Skipping sending message to {MOBILE_ENDPOINT}"
+
+        except Exception as exp:
+            response_body = f"Message not sent to {MOBILE_ENDPOINT}. Couldn't Validate the endpoint. Exception: {exp}"
+            print(exp)
+
     return {
         'statusCode': 200,
-        'body': json.dumps(response_body)
+        'body': response_body
     }
