@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-import json
 import boto3
-import botocore
 
 
 SNS = boto3.client('sns')
