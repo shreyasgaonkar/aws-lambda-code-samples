@@ -8,15 +8,22 @@ If your account doesn't support [AWS GovCloud (US) Access](https://aws.amazon.co
 +----------------+------------------------------------------+------------------------------------------+
 |     Region     |          MonthlySpendLimit ($)           |          SMSMonthToDateSpentUSD          |
 +----------------+------------------------------------------+------------------------------------------+
+|   us-east-2    |               Default: $1                |                    0                     |
 |   us-east-1    |                    10                    |                    0                     |
-|   us-west-1    |                    10                    |                    0                     |
+|   us-west-1    |               Default: $1                |                    0                     |
 |   us-west-2    |                    5                     |                 1.61379                  |
-| us-gov-west-1  | Account not configured for us-gov-west-1 | Account not configured for us-gov-west-1 |
-|  eu-central-1  |               Default: $1                |                    0                     |
-|   eu-west-1    |               Default: $1                |                    0                     |
-| ap-northeast-1 |               Default: $1                |                    0                     |
 |   ap-south-1   |               Default: $1                |                    0                     |
 | ap-southeast-1 |                    10                    |                    0                     |
 | ap-southeast-2 |                    5                     |                    0                     |
+| ap-northeast-1 |               Default: $1                |                    0                     |
+|  ca-central-1  |               Default: $1                |                    0                     |
+|  eu-central-1  |               Default: $1                |                    0                     |
+|   eu-west-1    |               Default: $1                |                    0                     |
+|   eu-west-2    |               Default: $1                |                    0                     |
+|   eu-west-3    |               Default: $1                |                    0                     |
+|   eu-north-1   |               Default: $1                |                    0                     |
+|   me-south-1   |               Default: $1                |  Account not configured for me-south-1   |
+|   sa-east-1    |               Default: $1                |                    0                     |
+| us-gov-west-1  | Account not configured for us-gov-west-1 | Account not configured for us-gov-west-1 |
 +----------------+------------------------------------------+------------------------------------------+
 ```
