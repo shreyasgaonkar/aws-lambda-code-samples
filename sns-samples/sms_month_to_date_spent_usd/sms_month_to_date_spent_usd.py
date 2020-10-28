@@ -51,11 +51,12 @@ def get_sms_cost(region):
     except Exception as exp:
         cw_value = f'Account not configured for {region}'
 
+    # Check MonthlySpendLimit
     try:
         sns_response = sns_client.get_sms_attributes()
         sns_value = sns_response['attributes']['MonthlySpendLimit']
     except Exception as exp:
-        if region == 'us-gov-west-1':
+        if region in ['us-gov-west-1', 'me-south-1']:
             sns_value = f'Account not configured for {region}'
         else:
             sns_value = 'Default: $1'

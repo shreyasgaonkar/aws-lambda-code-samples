@@ -22,7 +22,7 @@ If your account doesn't support [AWS GovCloud (US) Access](https://aws.amazon.co
 |   eu-west-2    |               Default: $1                |                    0                     |
 |   eu-west-3    |               Default: $1                |                    0                     |
 |   eu-north-1   |               Default: $1                |                    0                     |
-|   me-south-1   |               Default: $1                |  Account not configured for me-south-1   |
+|   me-south-1   |  Account not configured for me-south-1   |  Account not configured for me-south-1   |
 |   sa-east-1    |               Default: $1                |                    0                     |
 | us-gov-west-1  | Account not configured for us-gov-west-1 | Account not configured for us-gov-west-1 |
 +----------------+------------------------------------------+------------------------------------------+
