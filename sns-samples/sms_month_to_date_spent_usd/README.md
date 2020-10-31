@@ -1,6 +1,6 @@
-[This script](sms_month_to_date_spent_usd.py) will parse CloudWatch logs to determine the current SMSMonthToDateSpentUSD metric for all regions where [SMS is supported](https://docs.aws.amazon.com/sns/latest/dg/sns-supported-regions-countries.html), and spit out the metric along with the Max MonthlySpendLimit.
+[This script](sms_month_to_date_spent_usd.py) will parse CloudWatch to determine the current SMSMonthToDateSpentUSD metric for all regions where [SMS is supported](https://docs.aws.amazon.com/sns/latest/dg/sns-supported-regions-countries.html), and spit out the metric along with the Max MonthlySpendLimit.
 
-If your account doesn't support [AWS GovCloud (US) Access](https://aws.amazon.com/govcloud-us/?whats-new-ess.sort-by=item.additionalFields.postDateTime&whats-new-ess.sort-order=desc), the script will mention it.
+If your account doesn't support [AWS GovCloud (US) Access](https://aws.amazon.com/govcloud-us/?whats-new-ess.sort-by=item.additionalFields.postDateTime&whats-new-ess.sort-order=desc) or any other region where SNS-SMS is supported, the script will mention it.
 
 
 ## Output:
