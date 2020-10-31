@@ -10,14 +10,9 @@ LAMBDA_CLIENT = boto3.client('lambda')
 PAGINATOR = LAMBDA_CLIENT.get_paginator('list_functions')
 OPERATION_PARAMETERS = {'FunctionVersion': 'ALL'}
 
-# ALL_FUNCTIONS = set()
-
-# timestamp = "1585990763"
-# time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(timestamp))
-
 
 def get_async_configs():
-    """Retrieve async configurations for all functions in a region"""
+    """Retrieve async configurations for all functions and versions in a region"""
     page_iterator = PAGINATOR.paginate(**OPERATION_PARAMETERS)
     for page in page_iterator:
         functions = page['Functions']
