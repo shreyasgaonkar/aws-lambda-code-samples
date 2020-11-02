@@ -12,7 +12,7 @@ ORIGINATING_NUMBER = '+1XXXXXXXXXX'  # Optional: Select short/long code from Pin
 def send_message(number, message):
     """ Send SMS text message """
 
-    response = SNS.publish(
+    SNS.publish(
         PhoneNumber=number,
         Message=message,
         MessageAttributes={
