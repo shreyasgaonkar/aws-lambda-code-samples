@@ -13,33 +13,39 @@ A few of the sample AWS Lambda function codes for common use-cases with [Amazon 
 
 ## Lambda
 
-1. Get underlying Lambda's CPU hardware, /tmp storage, os-release and it's contents  - [get_cpu_info.py](lambda-samples/get_cpu_info/)
+1. Check Async queue congestions and delays in processing async events - [get_async_invoke_delay.py](lambda-samples/get_async_invoke_delay/)
 
-2. Create "Memory Used" Metrics for your Lambda functions - [lambda_memory_plot.py](lambda-samples/lambda_memory_plot/)
+2. Delete orphaned Event Source Mappings - [clean_orphaned_event_source_mappings.py](lambda-samples/clean_orphaned_event_source_mappings/)
 
-3. List all Lambda layers and it's info  - [list_layer_info.py](lambda-samples/list_layer_info/)
+3. Extract Lambda code from entire deployment package - [extract_deployment_package_without_layers](lambda-samples/extract_deployment_package_without_layers/)
 
-4. List code storage for a function including all attached layers - [lambda_code_size_including_layers.py](lambda-samples/lambda_code_size_all_functions/)
+4. Get Lambda's true async delay - [get_async_invoke_delay.py](lambda-samples/get_async_invoke_delay/)
 
-5. List code storage for all Lambda functions in a region - [lambda_code_size_all_functions.py](lambda-samples/lambda_code_size_including_layers/)
+5. Get underlying Lambda's CPU hardware, /tmp storage, os-release and it's contents  - [get_cpu_info.py](lambda-samples/get_cpu_info/)
 
-6. Get all functions using reserved or provisional concurrency in a region - [reserved_concurrency.py](lambda-samples/reserved_concurrency/)
+6. Test HTTP connection for your Lambda function inside VPC - [http_connection_test.py](lambda-samples/http_connection_test/)
 
-7. Test HTTP connection for your Lambda function inside VPC - [http_connection_test.py](lambda-samples/http_connection_test/)
+7. List code storage for all Lambda functions in a region - [lambda_code_size_all_functions.py](lambda-samples/lambda_code_size_all_functions/)
 
-8. Check Async queue congestions and delays in processing async events - [get_async_invoke_delay.py](lambda-samples/get_async_invoke_delay/)
+8. List code storage for a function including all attached layers - [lambda_code_size_including_layers.py](lambda-samples/lambda_code_size_including_layers/)
 
-9. List Lambda function version(s) using an ENI - [lambda_hyperplane_eni_checker.py](lambda-samples/lambda_hyperplane_eni_checker/)
+9. List all ENIs created by Lambda functions(s) - [lambda_created_enis.py](lambda-samples/lambda_created_enis/)
 
-10. List all ENIs created by Lambda functions(s) - [lambda_created_enis.py](lambda-samples/lambda_created_enis/)
+10. Get Lambda dashboard metrics across all regions - [lambda_dashboard.py](lambda-samples/lambda_dashboard/)
 
-11. Get Lambda dashboard metrics across all regions - [lambda_dashboard.py](lambda-samples/lambda_dashboard/)
+11. List Lambda function version(s) using an ENI - [lambda_hyperplane_eni_checker.py](lambda-samples/lambda_hyperplane_eni_checker/)
 
-12. Lambda X-Ray examples - [lambda_dashboard.py](lambda-samples/x_ray_sample/)
+12. Create "Memory Used" Metrics for your Lambda functions - [lambda_memory_plot.py](lambda-samples/lambda_memory_plot/)
 
-13. Delete orphaned Event Source Mappings - [clean_orphaned_event_source_mappings.py](lambda-samples/clean_orphaned_event_source_mappings/)
+13. List all Lambda layers and it's info  - [list_layer_info.py](lambda-samples/list_layer_info/)
 
-14. Extract Lambda code from entire deployment package - [extract_deployment_package_without_layers](lambda-samples/extract_deployment_package_without_layers/)
+14. Get all functions using reserved or provisional concurrency in a region - [reserved_concurrency.py](lambda-samples/reserved_concurrency/)
+
+15. Lambda X-Ray examples - [x_ray_sample.py](lambda-samples/x_ray_sample/)
+
+
+
+
 
 ## SNS
 
@@ -54,6 +60,8 @@ A few of the sample AWS Lambda function codes for common use-cases with [Amazon 
 5. Get SMS month to date spend in USD - [sms_month_to_date_spent_usd.py](sns-samples/sms_month_to_date_spent_usd/)
 
 6. SMS Dashboard - [sms_dashboard.py](sns-samples/sms_dashboard/)
+
+7. Send SMS with custom originating number - [sms_with_custom_originating_number](sns-samples/sms_with_custom_originating_number/)
 
 ## Additional Information
 
@@ -89,89 +97,98 @@ This is an iterative repository, I'll keep adding more sample codes for more use
 ```bash
 $ tree
 .
-├── CODE_OF_CONDUCT.md
-├── LICENSE
-├── README.md
-├── ec2-samples
-│   ├── describe_ami
-│   │   ├── README.md
-│   │   └── describe_ami.py
-│   ├── describe_ec2_securitygroup
-│   │   ├── README.md
-│   │   └── describe_ec2_securitygroup.py
-│   └── start_stop_ec2_instances_with_cloudwatch_event
-│       ├── README.md
-│       └── start_stop_ec2_instances_with_cloudwatch_event.py
-├── lambda-layer
-│   ├── README.md
-│   ├── boto3.zip
-│   ├── pandasnumpy.zip
-│   ├── prettyTable.zip
-│   ├── psycopg2.zip
-│   ├── requests.zip
-│   └── x-ray.zip
-├── lambda-samples
-│   ├── clean_orphaned_event_source_mappings
-│   │   ├── README.md
-│   │   └── clean_orphaned_event_source_mappings.py
-│   ├── extract_deployment_package_without_layers
-│   │   ├── README.md
-│   │   └── extract_deployment_package_without_layers.py
-│   ├── get_async_invoke_delay
-│   │   ├── README.md
-│   │   └── get_async_invoke_delay.py
-│   ├── get_cpu_info
-│   │   ├── README.md
-│   │   └── get_cpu_info.py
-│   ├── http_connection_test
-│   │   ├── README.md
-│   │   └── http_connection_test.py
-│   ├── lambda_code_size_all_functions
-│   │   ├── README.md
-│   │   └── lambda_code_size_all_functions.py
-│   ├── lambda_code_size_including_layers
-│   │   ├── README.md
-│   │   └── lambda_code_size_including_layers.py
-│   ├── lambda_created_enis
-│   │   ├── README.md
-│   │   └── lambda_created_enis.py
-│   ├── lambda_dashboard
-│   │   ├── README.md
-│   │   └── lambda_dashboard.py
-│   ├── lambda_hyperplane_eni_checker
-│   │   ├── README.md
-│   │   └── lambda_hyperplane_eni_checker.py
-│   ├── lambda_memory_plot
-│   │   ├── README.md
-│   │   └── lambda_memory_plot.py
-│   ├── list_layer_info
-│   │   ├── README.md
-│   │   └── list_layer_info.py
-│   ├── reserved_concurrency
-│   │   ├── README.md
-│   │   └── reserved_concurrency.py
-│   └── x_ray_sample
-│       ├── README.md
-│       └── x_ray_sample.py
-├── sns-samples
-│   ├── list_account_topic_subscriptions
-│   │   ├── README.md
-│   │   └── list_account_topic_subscriptions.py
-│   ├── sender_id
-│   │   ├── README.md
-│   │   └── sender_id.py
-│   ├── set_max_price_sms
-│   │   ├── README.md
-│   │   └── set_max_price_sms.py
-│   ├── set_subscription_filters
-│   │   ├── README.md
-│   │   └── set_subscription_filters.py
-│   └── sms_month_to_date_spent_usd
-│       ├── README.md
-│       └── sms_month_to_date_spent_usd.py
-└── tmp
-    └── images
-        ├── AWSLambdaCloudWatchAsyncDelay.png
-        ├── AWSLambdaCloudWatchMetric.png
-        └── AWSLambdaX-Ray.PNG
+|-- CODE_OF_CONDUCT.md
+|-- LICENSE
+|-- README.md
+|-- ec2-samples
+|   |-- describe_ami
+|   |   |-- README.md
+|   |   `-- describe_ami.py
+|   |-- describe_ec2_securitygroup
+|   |   |-- README.md
+|   |   `-- describe_ec2_securitygroup.py
+|   `-- start_stop_ec2_instances_with_cloudwatch_event
+|       |-- README.md
+|       `-- start_stop_ec2_instances_with_cloudwatch_event.py
+|-- lambda-layer
+|   |-- README.md
+|   |-- boto3.zip
+|   |-- pandasnumpy.zip
+|   |-- prettyTable.zip
+|   |-- psycopg2.zip
+|   |-- requests.zip
+|   `-- x-ray.zip
+|-- lambda-samples
+|   |-- async_config_dashboard
+|   |   |-- README.md
+|   |   `-- async_config_dashboard.py
+|   |-- clean_orphaned_event_source_mappings
+|   |   |-- README.md
+|   |   `-- clean_orphaned_event_source_mappings.py
+|   |-- extract_deployment_package_without_layers
+|   |   |-- README.md
+|   |   `-- extract_deployment_package_without_layers.py
+|   |-- get_async_invoke_delay
+|   |   |-- README.md
+|   |   `-- get_async_invoke_delay.py
+|   |-- get_cpu_info
+|   |   |-- README.md
+|   |   `-- get_cpu_info.py
+|   |-- http_connection_test
+|   |   |-- README.md
+|   |   `-- http_connection_test.py
+|   |-- lambda_code_size_all_functions
+|   |   |-- README.md
+|   |   `-- lambda_code_size_all_functions.py
+|   |-- lambda_code_size_including_layers
+|   |   |-- README.md
+|   |   `-- lambda_code_size_including_layers.py
+|   |-- lambda_created_enis
+|   |   |-- README.md
+|   |   `-- lambda_created_enis.py
+|   |-- lambda_dashboard
+|   |   |-- README.md
+|   |   `-- lambda_dashboard.py
+|   |-- lambda_hyperplane_eni_checker
+|   |   |-- README.md
+|   |   `-- lambda_hyperplane_eni_checker.py
+|   |-- lambda_memory_plot
+|   |   |-- README.md
+|   |   `-- lambda_memory_plot.py
+|   |-- list_layer_info
+|   |   |-- README.md
+|   |   `-- list_layer_info.py
+|   |-- reserved_concurrency
+|   |   |-- README.md
+|   |   `-- reserved_concurrency.py
+|   `-- x_ray_sample
+|       |-- README.md
+|       `-- x_ray_sample.py
+|-- sns-samples
+|   |-- list_account_topic_subscriptions
+|   |   |-- README.md
+|   |   `-- list_account_topic_subscriptions.py
+|   |-- sender_id
+|   |   |-- README.md
+|   |   `-- sender_id.py
+|   |-- set_max_price_sms
+|   |   |-- README.md
+|   |   `-- set_max_price_sms.py
+|   |-- set_subscription_filters
+|   |   |-- README.md
+|   |   `-- set_subscription_filters.py
+|   |-- sms_dashboard
+|   |   |-- README.md
+|   |   `-- sms_dashboard.py
+|   |-- sms_month_to_date_spent_usd
+|   |   |-- README.md
+|   |   `-- sms_month_to_date_spent_usd.py
+|   `-- sms_with_custom_originating_number
+|       |-- README.md
+|       `-- sms_with_custom_originating_number.py
+`-- tmp
+    `-- images
+        |-- AWSLambdaCloudWatchAsyncDelay.png
+        |-- AWSLambdaCloudWatchMetric.png
+        `-- AWSLambdaX-Ray.PNG
 ```
