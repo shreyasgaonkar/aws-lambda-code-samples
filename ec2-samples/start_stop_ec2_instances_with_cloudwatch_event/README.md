@@ -2,7 +2,18 @@
 
 ```start_stop_ec2_instances_with_cloudwatch_event.py``` will toggle instance state (start/stop) when a certain tag is added, and depending upon the time of the day.
 
-Here, we are using the Tag name as ```start-stop``` and it's value as ```yes```. The start-stop behavior will be triggered by a CloudWatch Event source (see below). Depending upon the time of the day, function will start the instances if the triggered before noon. Likewise, for a trigger after noon, Lambda will stop the targeted instance.
+To tag the target instances, our script will look for the tage name: ```start-stop``` and it's value as ```yes```. Tag name and it's value can be changed by altering: 
+
+```python
+paginator = paginator.paginate(Filters=[{
+    'Name': 'tag:start-stop',
+    'Values': [
+        'yes'
+    ]
+}])
+```
+
+The start-stop behavior will be triggered by a CloudWatch Event source (see below). Depending upon the time of the day, function will start the instances if the triggered before noon. Likewise, for a trigger after noon, a Lambda function will stop the targeted instance.
 
 ```BASH
 0 8,18 * * ? *
