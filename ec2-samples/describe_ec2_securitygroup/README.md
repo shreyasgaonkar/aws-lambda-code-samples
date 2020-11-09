@@ -1,8 +1,4 @@
-### describeEC2SecurityGroup
-
-**Edit**: Recursive API call using ```NextToken``` is fixed in [Commit #42](https://github.com/shreyasgaonkar/aws-lambda-code-samples/commit/b20ba402f387dd4db114042cb56e19d28525b983), please use the latest file.
-
-```describe_ec2_securitygroup.py``` will help you describe all EC2 instances within a VPC (or a region) and it's associated Security Groups & NACL.
+[describe_ec2_securitygroup.py](describe_ec2_securitygroup.py) will help you describe all EC2 instances within a VPC (or a region) and it's associated Security Groups & NACL.
 
 This function uses AWS' [boto3 SDK](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Client.describe_instances). Using the same SDK call, we can retrieve additional details about the EC2 instances including VPCID, NAT/IGW, Instance Type, Tags etc.
 
