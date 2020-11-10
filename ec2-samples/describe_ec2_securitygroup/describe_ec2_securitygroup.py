@@ -1,14 +1,22 @@
 import json
 import boto3
+from prettytable import PrettyTable  # imported as a Lambda Layer
+
+
+# PrettyTable
+TABLE = PrettyTable(['Instance ID', 'Security Group', 'NACL'])
 
 # Create EC2 and paginator client for the SDK calls
-client = boto3.client('ec2')
-paginator = client.get_paginator('describe_instances')
+CLIENT = boto3.client('ec2')
+PAGINATOR = CLIENT.get_paginator('describe_instances')
 
-target_vpc_id = 'vpc-28ba2f4e'
 
-# Create an array to store the instance id's to loop over later
-all_instances = []
+VPC_ID = 'vpc-28ba2f4e'
+
+PAGINATOR = PAGINATOR.paginate(Filters=[{
+    'Name': 'vpc-id',
+    'Values': [VPC_ID]
+}])
 
 # Function defination outside the handler for faster function execution
 # This will get all the required metadata - instance id, associated subnet
@@ -16,14 +24,15 @@ all_instances = []
 
 
 def instance_metadata(result):
+    """Get Instance info"""
     # Check if the instance is in the Target VPC:
     data = result['Instances'][0]['NetworkInterfaces'][0]
-    if(data['VpcId'] == target_vpc_id):
+    if(data['VpcId'] == VPC_ID):
         instance_id = result['Instances'][0]['InstanceId']
         security_group_id = data['Groups'][0]['GroupId']
         subnet_id = data['SubnetId']
 
-        response = client.describe_network_acls(
+        response = CLIENT.describe_network_acls(
             Filters=[
                 {
                     'Name': 'association.subnet-id',
@@ -32,26 +41,16 @@ def instance_metadata(result):
             ]
         )
         nac_id = response['NetworkAcls'][0]["NetworkAclId"]
-        all_instances.append(("Instance id: " + instance_id,
-                              "Security Group ID: " + security_group_id, "NACL id: " + nac_id))
+        TABLE.add_row([instance_id, security_group_id, nac_id])
 
 
 def lambda_handler(event, context):
 
-    # Describe all instances in this region
-    page_iterator = paginator.paginate()
-    result = []
+    for page in PAGINATOR:
+        for instance in page['Reservations']:
+            instance_metadata(instance)
 
-    for instance in page_iterator:
-        # print(instance)
-        result.append(instance['Reservations'])
-
-    for i in range(len(result[0])):
-        instance_metadata(result[0][i])
-
-    # Print all the required data from the variable
-    for i in all_instances:
-        print(i)
+    print(TABLE)
 
     return {
         'statusCode': 200,
