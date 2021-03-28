@@ -155,12 +155,12 @@ $ tree
 |   |-- lambda_memory_plot
 |   |   |-- README.md
 |   |   `-- lambda_memory_plot.py
+|   |-- list_concurrency_functions
+|   |   |-- README.md
+|   |   `-- list_concurrency_functions.py
 |   |-- list_layer_info
 |   |   |-- README.md
 |   |   `-- list_layer_info.py
-|   |-- reserved_concurrency
-|   |   |-- README.md
-|   |   `-- reserved_concurrency.py
 |   `-- x_ray_sample
 |       |-- README.md
 |       `-- x_ray_sample.py
