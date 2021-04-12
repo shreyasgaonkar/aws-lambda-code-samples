@@ -47,6 +47,8 @@ A few of the sample AWS Lambda function codes for common use-cases with [Amazon 
 
 
 
+15. List Lambda functions using a runtime - [list_functions_by_a_runtime](lambda-samples/list_functions_by_a_runtime/)
+
 ## SNS
 
 1. List all subscriptions tied to a topic in an account  - [list_account_topic_subscriptions.py](sns-samples/list_account_topic_subscriptions/)
