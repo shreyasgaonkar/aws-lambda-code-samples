@@ -2,7 +2,7 @@
 
 [This function](lambda_created_enis.py) lists all the ENIs created by all Lambda functions in a region.
 
-Uses [PrettyTable](https://pypi.org/project/PrettyTable/) module, imported as a [Lambda layer](/lambda-layer/prettyTable.zip).
+Uses [PrettyTable](https://pypi.org/project/PrettyTable/) module imported as a [Lambda layer](/lambda-layer/prettyTable.zip).
 
 
 Output:

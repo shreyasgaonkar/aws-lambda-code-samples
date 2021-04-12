@@ -13,8 +13,7 @@ TIME_DELTA = datetime.timedelta(hours=1)
 TODAY = datetime.date.today()
 YESTERDAY = datetime.datetime(TODAY.year, TODAY.month, TODAY.day) - TIME_DELTA
 TODAY = datetime.datetime(TODAY.year, TODAY.month, TODAY.day)
-REGIONS = ['us-east-1', 'us-west-1', 'us-west-2', 'us-gov-west-1', 'eu-central-1', 'eu-west-1',
-           'ap-northeast-1', 'ap-south-1', 'ap-southeast-1', 'ap-southeast-2']
+REGIONS = ['us-east-2', 'us-east-1', 'us-west-1', 'us-west-2', 'ap-south-1', 'ap-southeast-1', 'ap-southeast-2', 'ap-northeast-1', 'ca-central-1', 'eu-central-1', 'eu-west-1', 'eu-west-2', 'eu-west-3', 'eu-north-1', 'me-south-1', 'sa-east-1', 'us-gov-west-1']
 # Regions from: https://docs.aws.amazon.com/sns/latest/dg/sns-supported-regions-countries.html
 
 
@@ -52,11 +51,12 @@ def get_sms_cost(region):
     except Exception as exp:
         cw_value = f'Account not configured for {region}'
 
+    # Check MonthlySpendLimit
     try:
         sns_response = sns_client.get_sms_attributes()
         sns_value = sns_response['attributes']['MonthlySpendLimit']
     except Exception as exp:
-        if region == 'us-gov-west-1':
+        if region in ['us-gov-west-1', 'me-south-1']:
             sns_value = f'Account not configured for {region}'
         else:
             sns_value = 'Default: $1'

@@ -5,24 +5,22 @@ import boto3
 SNS = boto3.client('sns')
 PINPOINT = boto3.client('pinpoint')
 MOBILE_ENDPOINT = '+1XXXXXXXXXX'  # Phone number in E.164 Format
-SENDERID = 'Godzilla'
 MESSAGE = 'Hello, from AWS SNS!'
+ORIGINATING_NUMBER = '+1XXXXXXXXXX'  # Optional: Select short/long code from Pinpoint SMS and voice console
 
 
 def send_message(number, message):
     """ Send SMS text message """
-    # Check optional senderid requirements here:
-    # https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-countries.html
 
-    response = SNS.publish(
+    SNS.publish(
         PhoneNumber=number,
         Message=message,
         MessageAttributes={
-            'AWS.SNS.SMS.SenderID': {
+            'AWS.MM.SMS.OriginationNumber': {
                 'DataType': 'String',
-                'StringValue': SENDERID
-            }})
-    print(response)
+                'StringValue': ORIGINATING_NUMBER
+            }
+        })
 
 
 def lambda_handler(event, context):

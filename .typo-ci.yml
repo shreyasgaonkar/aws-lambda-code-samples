@@ -39,6 +39,7 @@ excluded_words:
   - usd
   - cwe
   - eni
+  - enis
 
 
 # Would you like filenames to also be spellchecked?
