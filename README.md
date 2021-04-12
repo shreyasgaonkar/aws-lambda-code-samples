@@ -41,6 +41,8 @@ A few of the sample AWS Lambda function codes for common use-cases with [Amazon 
 
 14. Extract Lambda code from entire deployment package - [extract_deployment_package_without_layers](lambda-samples/extract_deployment_package_without_layers/)
 
+15. List Lambda functions using a runtime - [list_functions_by_a_runtime](lambda-samples/list_functions_by_a_runtime/)
+
 ## SNS
 
 1. List all subscriptions tied to a topic in an account  - [list_account_topic_subscriptions.py](sns-samples/list_account_topic_subscriptions/)
@@ -144,6 +146,9 @@ $ tree
 │   ├── lambda_memory_plot
 │   │   ├── README.md
 │   │   └── lambda_memory_plot.py
+│   ├── list_functions_by_a_runtime
+│   │   ├── README.md
+│   │   └── list_functions_by_a_runtime.py
 │   ├── list_layer_info
 │   │   ├── README.md
 │   │   └── list_layer_info.py
@@ -166,6 +171,9 @@ $ tree
 │   ├── set_subscription_filters
 │   │   ├── README.md
 │   │   └── set_subscription_filters.py
+│   ├── sms_dashboard
+│   │   ├── README.md
+│   │   └── sms_dashboard.py
 │   └── sms_month_to_date_spent_usd
 │       ├── README.md
 │       └── sms_month_to_date_spent_usd.py
