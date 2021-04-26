@@ -160,6 +160,9 @@ $ tree
 |   |-- list_concurrency_functions
 |   |   |-- README.md
 |   |   `-- list_concurrency_functions.py
+|   |-- list_functions_by_a_runtime
+|   |   |-- README.md
+|   |   `-- list_functions_by_a_runtime.py
 |   |-- list_layer_info
 |   |   |-- README.md
 |   |   `-- list_layer_info.py
