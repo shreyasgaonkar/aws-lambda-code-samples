@@ -39,7 +39,7 @@ A few of the sample AWS Lambda function codes for common use-cases with [Amazon 
 
 13. List all Lambda layers and it's info  - [list_layer_info.py](lambda-samples/list_layer_info/)
 
-14. Get all functions using reserved or provisional concurrency in a region - [reserved_concurrency.py](lambda-samples/reserved_concurrency/)
+14. Get all functions using reserved or provisional concurrency in a region - [list_concurrency_functions.py](lambda-samples/list_concurrency_functions)
 
 15. Lambda X-Ray examples - [x_ray_sample.py](lambda-samples/x_ray_sample/)
 
