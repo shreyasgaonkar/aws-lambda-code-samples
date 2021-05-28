@@ -1,61 +1,62 @@
 import json
-import time
+import concurrent.futures  # for multithreading
 import boto3
+from prettytable import PrettyTable  # Imported as a Lambda layer
+
+# PrettyTable
+TABLE = PrettyTable(['SubscriptionArn', 'Owner', 'Endpoint',
+                     'TopicArn', 'Region'])
 
 # Crete EC2 client to list all regions
-ec2 = boto3.client('ec2')
-response = ec2.describe_regions()
-regions = response['Regions']
+EC2_CLIENT = boto3.client('ec2')
+EC2_RESPONSE = EC2_CLIENT.describe_regions()
+REGIONS = [region['RegionName'] for region in EC2_RESPONSE['Regions']]
+
 
 all_topics = []
 result = []
 
 
+def get_region_from_arn(arn):
+    """ Get region from ARN provided """
+
+    return arn.split(":")[3]
+
+
+def print_subscriptions(subs):
+    """ Print subs in PrettyTable """
+
+    for sub in subs:
+        TABLE.add_row([sub['SubscriptionArn'], sub['Owner'], sub['Endpoint'],
+                      sub['TopicArn'], get_region_from_arn(sub['SubscriptionArn'])])
+
+
+def list_subscription(region):
+    """ List all subscriptions through boto3 pagination """
+
+    sns_client = boto3.client('sns', region_name=region)
+
+    # Paginator to iterate through all results
+    list_subscriptions_paginator = sns_client.get_paginator('list_subscriptions')
+    response_iterator = list_subscriptions_paginator.paginate()
+
+    for response in response_iterator:
+        if response['Subscriptions']:
+            print_subscriptions(response['Subscriptions'])
+
+
+# Start multithreading on individual urls
+with concurrent.futures.ThreadPoolExecutor() as executor:
+    results = [executor.submit(list_subscription, region) for region in REGIONS]
+
+
 def lambda_handler(event, context):
     """Main function to return subscriptions under all topics for an account"""
 
-    # Get all regions, and create SNS client inside it
-    for region in regions:
-        client = boto3.client('sns', region_name=region['RegionName'])
-
-        # Paginator to iterate through all results
-        list_topics_paginator = client.get_paginator('list_topics')
-        list_subscriptions_paginator = client.get_paginator('list_subscriptions_by_topic')
-
-        response_iterator = list_topics_paginator.paginate()
-
-        # Loop over the iterator
-        for topic in response_iterator:
-
-            # Check if topic exists in a region
-            if topic['Topics']:
-
-                # List all topic ARN
-                for i in range(len(topic['Topics'])):
-
-                    # Create list subscription iterator
-                    sub_response_iterator = list_subscriptions_paginator.paginate(
-                        TopicArn=topic['Topics'][i]['TopicArn'])
-
-                    # Loop through all subs in a topic
-                    for sub in sub_response_iterator:
-                        subs = []
-                        if sub['Subscriptions']:
-                            for j in sub['Subscriptions']:
-                                subs.append(j['SubscriptionArn'])
-                        # print(sub['Subscriptions'])
-
-                    # Append the data to the variable
-                    all_topics.append((topic['Topics'][i]['TopicArn'], subs))
-                    # Don't throttle the call!
-                    time.sleep(0.2)
-
-    # Let's check if all topics are here?
-    for i in all_topics:
-        print(i)
-    # print(all_topics)
+    print("Account Subscriptions")
+    print(TABLE)
 
     return {
         'statusCode': 200,
-        'body': json.dumps('Completed execution')
+        'body': json.dumps('Completed execution, check CloudWatch logs')
     }
