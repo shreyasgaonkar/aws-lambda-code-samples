@@ -10,6 +10,7 @@ A few of the sample AWS Lambda function codes for common use-cases with [Amazon 
 
 3. Describe all AMIs for your account across all regions - [describe_ami.py](ec2-samples/describe_ami/)
 
+4. Delete EBS volumes using a snapshot and its status - [delete_volumes_by_snapshot.py](ec2-samples/delete_volumes_by_snapshot/)
 
 ## Lambda
 
@@ -103,6 +104,9 @@ $ tree
 |-- LICENSE
 |-- README.md
 |-- ec2-samples
+|   |-- delete_volumes_by_snapshot
+|   |   |-- README.md
+|   |   `-- delete_volumes_by_snapshot.py
 |   |-- describe_ami
 |   |   |-- README.md
 |   |   `-- describe_ami.py
