@@ -21,7 +21,7 @@ def delete_volume(volume_id, dry_run=True):
     """Deletes the volume by snapshot id. Sets dry run to true for accidental deletion"""
     print(volume_id)
     try:
-        response = EC2_CLIENT.delete_volume(
+        EC2_CLIENT.delete_volume(
             VolumeId=volume_id,
             DryRun=dry_run
         )
