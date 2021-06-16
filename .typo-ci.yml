@@ -40,6 +40,9 @@ excluded_words:
   - cwe
   - eni
   - enis
+  - botocore
+  - boto
+  - boto3
 
 
 # Would you like filenames to also be spellchecked?
