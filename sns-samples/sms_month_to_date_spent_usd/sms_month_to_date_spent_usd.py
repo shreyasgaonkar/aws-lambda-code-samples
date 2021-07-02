@@ -9,11 +9,11 @@ from prettytable import PrettyTable  # imported from Lambda layer
 TABLE = PrettyTable(['Region', 'MonthlySpendLimit ($)', 'SMSMonthToDateSpentUSD'])
 
 
-TIME_DELTA = datetime.timedelta(hours=1)
-TODAY = datetime.date.today()
-YESTERDAY = datetime.datetime(TODAY.year, TODAY.month, TODAY.day) - TIME_DELTA
-TODAY = datetime.datetime(TODAY.year, TODAY.month, TODAY.day)
-REGIONS = ['us-east-2', 'us-east-1', 'us-west-1', 'us-west-2', 'ap-south-1', 'ap-southeast-1', 'ap-southeast-2', 'ap-northeast-1', 'ca-central-1', 'eu-central-1', 'eu-west-1', 'eu-west-2', 'eu-west-3', 'eu-north-1', 'me-south-1', 'sa-east-1', 'us-gov-west-1']
+START_TIME = datetime.datetime.utcnow() - datetime.timedelta(hours=1)
+END_TIME = datetime.datetime.utcnow()
+REGIONS = ['us-east-2', 'us-east-1', 'us-west-1', 'us-west-2', 'ap-south-1', 'ap-southeast-1', 'ap-southeast-2', 'ap-northeast-1',
+           'ca-central-1', 'eu-central-1', 'eu-west-1', 'eu-west-2', 'eu-west-3', 'eu-north-1', 'me-south-1', 'sa-east-1', 'us-gov-west-1']
+# Hardcoded to include us-gov-west-1 region
 # Regions from: https://docs.aws.amazon.com/sns/latest/dg/sns-supported-regions-countries.html
 
 
@@ -42,19 +42,19 @@ def get_sms_cost(region):
                     'ReturnData': True,
                 },
             ],
-            EndTime=TODAY,
-            StartTime=YESTERDAY
+            EndTime=END_TIME,
+            StartTime=START_TIME
         )
-        cw_value = cw_response['MetricDataResults'][0]['Values'][0]
+        cw_value = f"${cw_response['MetricDataResults'][0]['Values'][0]}"
     except IndexError:
-        cw_value = '0'
+        cw_value = '$0'
     except Exception as exp:
         cw_value = f'Account not configured for {region}'
 
     # Check MonthlySpendLimit
     try:
         sns_response = sns_client.get_sms_attributes()
-        sns_value = sns_response['attributes']['MonthlySpendLimit']
+        sns_value = f"${sns_response['attributes']['MonthlySpendLimit']}"
     except Exception as exp:
         if region in ['us-gov-west-1', 'me-south-1']:
             sns_value = f'Account not configured for {region}'
