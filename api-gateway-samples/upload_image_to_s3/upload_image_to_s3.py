@@ -34,7 +34,7 @@ def parse_image_from_event(event, context):
     except Exception as exp:
         print(exp)
         raise Exception(
-            f"Unknown error occured. Check CloudWatch Logs under /aws/lambda/{context.function_name}")
+            f"Unknown error occurred. Check CloudWatch Logs under /aws/lambda/{context.function_name}")
 
 
 def lambda_handler(event, context):
