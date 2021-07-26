@@ -1,6 +1,7 @@
 import json
 import os
 import boto3
+import botocore
 
 # ==================
 # Override AWS Region below, otherwise will use Lambda function's region
@@ -42,13 +43,17 @@ def find_orphaned_esm():
     return True
 
 
-def delete_orphaned_esm(lambda_arn, uuid):
-    """Delete the event source mapping using the UUID"""
+def delete_orphaned_esm(lambda_arn, esm_id):
+    """Delete the event source mapping using the UUID (esm_id)"""
     try:
-        response = LAMBDA_CLIENT.delete_event_source_mapping(UUID=uuid)
+        response = LAMBDA_CLIENT.delete_event_source_mapping(UUID=esm_id)
         if response['ResponseMetadata']['HTTPStatusCode'] == 200:
-            print(f"Deleted ESM for UUID: {uuid} associated with {lambda_arn}")
-            DELETED_ESM.add(uuid)
+            print(f"Deleted ESM for UUID: {esm_id} associated with {lambda_arn}")
+            DELETED_ESM.add(esm_id)
+    except botocore.exceptions.ClientError as error:
+        print(f'ClientError: {error}')
+    except botocore.exceptions.ParamValidationError as error:
+        print('ValueError: The parameters you provided are incorrect: {error}')
     except Exception as exp:
         print(exp)
     return True
