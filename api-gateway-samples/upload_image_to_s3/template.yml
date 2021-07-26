@@ -1,0 +1,34 @@
+---
+swagger: "2.0"
+info:
+  description: "Upload-images-to-s3"
+  version: "2021-07-16T13:45:35Z"
+  title: "API-Lambda-S3"
+basePath: "/v1"
+schemes:
+- "https"
+paths:
+  /upload-photo:
+    post:
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:<api-region>:lambda:path/2015-03-31/functions/arn:aws:lambda:<lambda-region>:<Account-Id>:function:<Lambda-function-name>/invocations"
+        responses:
+          default:
+            statusCode: "200"
+        passthroughBehavior: "when_no_match"
+        contentHandling: "CONVERT_TO_TEXT"
+        type: "aws_proxy"
+definitions:
+  Empty:
+    type: "object"
+    title: "Empty Schema"
+x-amazon-apigateway-binary-media-types:
+- "*/*"
