@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import boto3
 
-
 SNS = boto3.client('sns')
 PINPOINT = boto3.client('pinpoint')
 MOBILE_ENDPOINT = '+1XXXXXXXXXX'  # Phone number in E.164 Format
@@ -40,11 +39,11 @@ def lambda_handler(event, context):
     else:
         # Validate the endpoint before sending the message
         try:
-            if response['NumberValidateResponse']['PhoneType'].lower() in ['mobile', 'prepaid']:
+            if response['NumberValidateResponse']['PhoneType'].lower() in {'mobile', 'prepaid', 'voip'}:
                 send_message(number=MOBILE_ENDPOINT, message=MESSAGE)
                 response_body = f"Success. Message sent to {MOBILE_ENDPOINT}"
             else:
-                response_body = f"Not a valid phone endpoint type. Supported messages types: Mobile/Prepaid. Skipping sending message to {MOBILE_ENDPOINT}"
+                response_body = f"Not a valid phone endpoint type. Supported messages types: Mobile/Prepaid/VOIP. Skipping sending message to {MOBILE_ENDPOINT}"
 
         except Exception as exp:
             response_body = f"Message not sent to {MOBILE_ENDPOINT}. Couldn't Validate the endpoint. Exception: {exp}"
