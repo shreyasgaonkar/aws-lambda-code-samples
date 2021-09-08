@@ -64,7 +64,7 @@ A few of the sample AWS Lambda function codes for common use-cases with [Amazon 
 
 ## API Gateway
 
-1. Upload Imsage to S3 - [upload_image_to_s3.py](api-gateway-samples/upload_image_to_s3/upload_image_to_s3.py)
+1. Upload Imsage to S3 - [upload_image_to_s3.py](api-gateway-samples/upload_image_to_s3/)
 
 ## Additional Information
 
