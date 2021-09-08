@@ -1,6 +1,6 @@
 # AWS Lambda sample codes [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/shreyasgaonkar/aws-lambda-code-samples.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/shreyasgaonkar/aws-lambda-code-samples/context:python) [![HitCount](http://hits.dwyl.com/shreyasgaonkar/aws-lambda-code-samples.svg)](http://hits.dwyl.com/shreyasgaonkar/aws-lambda-code-samples)
 
-A few of the sample AWS Lambda function codes for common use-cases with [Amazon EC2](https://github.com/shreyasgaonkar/aws-lambda-code-samples#ec2), [AWS Lambda](https://github.com/shreyasgaonkar/aws-lambda-code-samples#lambda) & [Amazon SNS](https://github.com/shreyasgaonkar/aws-lambda-code-samples#sns) using Python runtime.
+A few of the sample AWS Lambda function codes for common use-cases with [Amazon EC2](https://github.com/shreyasgaonkar/aws-lambda-code-samples#ec2), [AWS Lambda](https://github.com/shreyasgaonkar/aws-lambda-code-samples#lambda), [API Gateway](https://aws.amazon.com/api-gateway/) & [Amazon SNS](https://github.com/shreyasgaonkar/aws-lambda-code-samples#sns) using Python runtime.
 
 ## EC2
 
@@ -44,11 +44,7 @@ A few of the sample AWS Lambda function codes for common use-cases with [Amazon 
 
 15. Lambda X-Ray examples - [x_ray_sample.py](lambda-samples/x_ray_sample/)
 
-
-
-
-
-15. List Lambda functions using a runtime - [list_functions_by_a_runtime](lambda-samples/list_functions_by_a_runtime/)
+16. List Lambda functions using a runtime - [list_functions_by_a_runtime](lambda-samples/list_functions_by_a_runtime/)
 
 ## SNS
 
@@ -65,6 +61,10 @@ A few of the sample AWS Lambda function codes for common use-cases with [Amazon 
 6. SMS Dashboard - [sms_dashboard.py](sns-samples/sms_dashboard/)
 
 7. Send SMS with custom originating number - [sms_with_custom_originating_number](sns-samples/sms_with_custom_originating_number/)
+
+## API Gateway
+
+1. Upload Imsage to S3 - [upload_image_to_s3.py](api-gateway-samples/upload_image_to_s3/upload_image_to_s3.py)
 
 ## Additional Information
 
