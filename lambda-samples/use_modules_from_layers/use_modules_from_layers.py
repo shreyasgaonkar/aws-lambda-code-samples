@@ -1,5 +1,4 @@
 import sys
-import os
 import json
 sys.path.insert(0, '/opt/python/')
 import urllib3
