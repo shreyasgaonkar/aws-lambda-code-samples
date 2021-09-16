@@ -1,3 +1,7 @@
+## Python3.8+
+For Python3.8+ runtimes, use the modules from `python3.8+` directory. For other earlier runtimes, use the .zip from this directory.
+
+
 You can use these ```.zip``` files in your projects by creating a layer and adding it to the required layers. Make sure to select the required runtimes for these layers for your functions to list them under the console.
 
 Unlike deployment packages, modules for layers have to be bundled inside a [directory](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html#configuration-layers-path). For python that directory is 'python'. The folder structure would look something like this:
