@@ -4,69 +4,70 @@ A few of the sample AWS Lambda function codes for common use-cases with [Amazon 
 
 ## EC2
 
+1. Delete EBS volumes using a snapshot and its status - [delete_volumes_by_snapshot.py](ec2-samples/delete_volumes_by_snapshot/)
+
+1. Delete EBS volumes by snapshot - [delete_volumes_by_snapshot.py](ec2-samples/delete_volumes_by_snapshot/)
+
+1. Describe all AMIs for your account across all regions - [describe_ami.py](ec2-samples/describe_ami/)
+
+1. Describe EC2's metadata in a region - Associated subnets, Instance ID & NACL ID for a target VPC - [describe_ec2_securitygroup.py](ec2-samples/describe_ec2_securitygroup)
+
 1. Start/Stop EC2 instances using CloudWatch Event Trigger  - [start_stop_ec2_instances_with_cloudwatch_event.py](ec2-samples/start_stop_ec2_instances_with_cloudwatch_event/)
-
-2. Describe EC2's metadata in a region - Associated subnets, Instance ID & NACL-ID for a target VPC - [describe_ec2_securitygroup.py](ec2-samples/describe_ec2_securitygroup)
-
-3. Describe all AMIs for your account across all regions - [describe_ami.py](ec2-samples/describe_ami/)
-
-4. Delete EBS volumes using a snapshot and its status - [delete_volumes_by_snapshot.py](ec2-samples/delete_volumes_by_snapshot/)
-
+ 
 ## Lambda
+
+1. Get all async configuration (Max retry attempts, max event age, destinations) across all regions - [async_config_dashboard.py](lambda-samples/async_config_dashboard/)
+
+1. Delete orphaned Event Source Mappings - [clean_orphaned_event_source_mappings.py](lambda-samples/clean_orphaned_event_source_mappings/)
+
+1. Extract Lambda code from entire deployment package - [extract_deployment_package_without_layers](lambda-samples/extract_deployment_package_without_layers/)
 
 1. Check Async queue congestions and delays in processing async events - [get_async_invoke_delay.py](lambda-samples/get_async_invoke_delay/)
 
-2. Delete orphaned Event Source Mappings - [clean_orphaned_event_source_mappings.py](lambda-samples/clean_orphaned_event_source_mappings/)
+1. Get underlying Lambda's CPU hardware, /tmp storage, os-release and it's contents  - [get_cpu_info.py](lambda-samples/get_cpu_info/)
 
-3. Extract Lambda code from entire deployment package - [extract_deployment_package_without_layers](lambda-samples/extract_deployment_package_without_layers/)
+1. Test HTTP connection for your Lambda function inside VPC - [http_connection_test.py](lambda-samples/http_connection_test/)
 
-4. Get Lambda's true async delay - [get_async_invoke_delay.py](lambda-samples/get_async_invoke_delay/)
+1. List code storage for all Lambda functions in a region - [lambda_code_size_all_functions.py](lambda-samples/lambda_code_size_all_functions/)
 
-5. Get underlying Lambda's CPU hardware, /tmp storage, os-release and it's contents  - [get_cpu_info.py](lambda-samples/get_cpu_info/)
+1. List code storage for a function including all attached layers - [lambda_code_size_including_layers.py](lambda-samples/lambda_code_size_including_layers/)
 
-6. Test HTTP connection for your Lambda function inside VPC - [http_connection_test.py](lambda-samples/http_connection_test/)
+1. List all ENIs created by Lambda functions(s) - [lambda_created_enis.py](lambda-samples/lambda_created_enis/)
 
-7. List code storage for all Lambda functions in a region - [lambda_code_size_all_functions.py](lambda-samples/lambda_code_size_all_functions/)
+1. Get Lambda dashboard metrics across all regions - [lambda_dashboard.py](lambda-samples/lambda_dashboard/)
 
-8. List code storage for a function including all attached layers - [lambda_code_size_including_layers.py](lambda-samples/lambda_code_size_including_layers/)
+1. List Lambda function version(s) using an ENI - [lambda_hyperplane_eni_checker.py](lambda-samples/lambda_hyperplane_eni_checker/)
 
-9. List all ENIs created by Lambda functions(s) - [lambda_created_enis.py](lambda-samples/lambda_created_enis/)
+1. Create "Memory Used" Metrics for your Lambda functions - [lambda_memory_plot.py](lambda-samples/lambda_memory_plot/)
 
-10. Get Lambda dashboard metrics across all regions - [lambda_dashboard.py](lambda-samples/lambda_dashboard/)
+1. Get all functions using reserved or provisional concurrency in a region - [list_concurrency_functions.py](lambda-samples/list_concurrency_functions)
 
-11. List Lambda function version(s) using an ENI - [lambda_hyperplane_eni_checker.py](lambda-samples/lambda_hyperplane_eni_checker/)
+1. List Lambda functions using a runtime - [list_functions_by_a_runtime](lambda-samples/list_functions_by_a_runtime/)
 
-12. Create "Memory Used" Metrics for your Lambda functions - [lambda_memory_plot.py](lambda-samples/lambda_memory_plot/)
+1. List all Lambda layers and it's info  - [list_layer_info.py](lambda-samples/list_layer_info/)
 
-13. List all Lambda layers and it's info  - [list_layer_info.py](lambda-samples/list_layer_info/)
+1. Use python modules from layers over deployment package - [use_modules_from_layers](lambda-samples/use_modules_from_layers)
 
-14. Get all functions using reserved or provisional concurrency in a region - [list_concurrency_functions.py](lambda-samples/list_concurrency_functions)
-
-15. Lambda X-Ray examples - [x_ray_sample.py](lambda-samples/x_ray_sample/)
-
-16. List Lambda functions using a runtime - [list_functions_by_a_runtime](lambda-samples/list_functions_by_a_runtime/)
-
-17. Use python modules from layers over deployment package - [use_modules_from_layers](lambda-samples/use_modules_from_layers)
-
+1. Lambda X-Ray examples - [x_ray_sample.py](lambda-samples/x_ray_sample/)
 ## SNS
 
 1. List all subscriptions tied to a topic in an account  - [list_account_topic_subscriptions.py](sns-samples/list_account_topic_subscriptions/)
 
-2. Programmatically create subscription filters for SNS  - [set_subscription_filters.py](sns-samples/set_subscription_filters/)
+1. Programmatically create subscription filters for SNS  - [set_subscription_filters.py](sns-samples/set_subscription_filters/)
 
-3. Programmatically set SenderID while sending SMS text messages  - [sender_id.py](sns-samples/sender_id/)
+1. Programmatically set SenderID while sending SMS text messages  - [sender_id.py](sns-samples/sender_id/)
 
-4. Programmatically set max price while sending SMS text messages - [set_max_price.py](sns-samples/set_max_price_sms/)
+1. Programmatically set max price while sending SMS text messages - [set_max_price.py](sns-samples/set_max_price_sms/)
 
-5. Get SMS month to date spend in USD - [sms_month_to_date_spent_usd.py](sns-samples/sms_month_to_date_spent_usd/)
+1. Get SMS month to date spend in USD - [sms_month_to_date_spent_usd.py](sns-samples/sms_month_to_date_spent_usd/)
 
-6. SMS Dashboard - [sms_dashboard.py](sns-samples/sms_dashboard/)
+1. SMS Dashboard - [sms_dashboard.py](sns-samples/sms_dashboard/)
 
-7. Send SMS with custom originating number - [sms_with_custom_originating_number](sns-samples/sms_with_custom_originating_number/)
+1. Send SMS with custom originating number - [sms_with_custom_originating_number](sns-samples/sms_with_custom_originating_number/)
 
 ## API Gateway
 
-1. Upload Imsage to S3 - [upload_image_to_s3.py](api-gateway-samples/upload_image_to_s3/)
+1. Upload Binary Image to S3 using a POST request - [upload_image_to_s3.py](api-gateway-samples/upload_image_to_s3/)
 
 ## Additional Information
 
@@ -85,14 +86,14 @@ A few of the sample AWS Lambda function codes for common use-cases with [Amazon 
 
 ## Contributing
 
-This is an iterative repository, I'll keep adding more sample codes for more use-cases as I come across them. I have tested all scripts using ```Python3.6``` runtime inside Lambda under ```us-west-2``` region, and most of this should work for all ```Python3``` runtimes (Python 2.7 EOL: :dizzy_face:).
+This is an iterative repository, I'll keep adding more sample codes for more use-cases as I come across them. I have tested all scripts using ```Python3.6``` runtime inside Lambda under ```us-west-2``` region, and most of this should work for all ```Python3``` runtime.
 
 - Fork repo
-- Set runtime as ```Python3``` (```Python3.6``` preferred)
+- Set runtime as ```Python3``` (```Python3.7``` preferred)
 - Send your awesome :raised_hands: [Pull Request](https://github.com/shreyasgaonkar/aws-lambda-code-samples/pulls) with code/.md changes
     - Follow Python's [PEP8](https://www.python.org/dev/peps/pep-0008/) coding standards.
     - Commit repo using the [Seven Rules](https://chris.beams.io/posts/git-commit/#seven-rules)
-- Your PR gets merged :white_check_mark: and a shoutout :loudspeaker:
+- Your PR gets merged :white_check_mark: and a shout out :loudspeaker:
 
 ## Looking for CLI samples?
 - Head to https://github.com/shreyasgaonkar/aws-cli-code-samples
