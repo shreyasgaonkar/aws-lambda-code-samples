@@ -10,7 +10,7 @@ A few of the sample AWS Lambda function codes for common use-cases with [Amazon 
 
 1. Describe all AMIs for your account across all regions - [describe_ami.py](ec2-samples/describe_ami/)
 
-1. Describe EC2's metadata in a region - Associated subnets, Instance ID & NACL ID for a target VPC - [describe_ec2_securitygroup.py](ec2-samples/describe_ec2_securitygroup)
+1. Describe EC2's metadata in a region - Associated subnets, Instance ID & NACL ID for a target VPC - [describe_ec2_instances_by_vpc.py](ec2-samples/describe_ec2_instances_by_vpc)
 
 1. Start/Stop EC2 instances using CloudWatch Event Trigger  - [start_stop_ec2_instances_with_cloudwatch_event.py](ec2-samples/start_stop_ec2_instances_with_cloudwatch_event/)
  
