@@ -55,7 +55,7 @@ A few of the sample AWS Lambda function codes for common use-cases with [Amazon 
 
 1. Programmatically create subscription filters for SNS  - [set_subscription_filters.py](sns-samples/set_subscription_filters/)
 
-1. Programmatically set SenderID while sending SMS text messages  - [sender_id.py](sns-samples/sender_id/)
+1. Programmatically set SenderID while sending SMS text messages  - [send_sms_with_sender_id.py](sns-samples/send_sms_with_sender_id/)
 
 1. Programmatically set max price while sending SMS text messages - [set_max_price.py](sns-samples/set_max_price_sms/)
 
