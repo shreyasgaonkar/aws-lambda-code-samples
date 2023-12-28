@@ -1,10 +1,7 @@
-This code describes AMIs available to you across all regions. Replace the AccountId or add multiple AccountIds under `Values`:
+This code describes AMIs available to you across all regions. Replace the AccountId or add multiple AccountIds under:
 
 ```
-EC2_PAGINATOR = EC2_PAGINATOR.paginate(Filters=[{
-    'Name': 'owner-id',
-    'Values': ['<Enter Account ID>']
-}])
+ACCOUNT_ID = STS_CLIENT.get_caller_identity()["Account"]
 ```
 
 Any snapshots older than 7 days will be tagged by default. You can change this by updating the time delta from:
@@ -13,7 +10,7 @@ Any snapshots older than 7 days will be tagged by default. You can change this b
 RETENTION_DATE = datetime.datetime.utcnow() - datetime.timedelta(days=7)
 ```
 
-⚠️ This script runs in Dry mode by default. You can change this to delete the snapshot once you are ready, by changing calling `delete_snapshot()` with `dry_run_flag=False`
+⚠️ This script runs in Dry mode by default. You can change this to delete the snapshot once you are ready, by changing calling `DRY_RUN = False`
 
 
 Function output:
