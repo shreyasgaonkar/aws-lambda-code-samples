@@ -8,8 +8,7 @@ TABLE = PrettyTable(["SubscriptionArn", "Owner", "Endpoint", "TopicArn", "Region
 
 # Crete EC2 client to list all regions
 EC2_CLIENT = boto3.client("ec2")
-EC2_RESPONSE = EC2_CLIENT.describe_regions()
-REGIONS = [region["RegionName"] for region in EC2_RESPONSE["Regions"]]
+REGIONS = EC2_CLIENT.describe_regions()["Regions"]
 
 
 all_topics = []
@@ -22,19 +21,22 @@ def get_region_from_arn(arn):
     return arn.split(":")[3]
 
 
-def print_subscriptions(subscriptions):
-    """Print subs in PrettyTable"""
+def add_row_to_table(table, sub):
+    """Add a row to the table for a subscription"""
+    row = [
+        sub["SubscriptionArn"],
+        sub["Owner"],
+        sub["Endpoint"],
+        sub["TopicArn"],
+        get_region_from_arn(sub["SubscriptionArn"]),
+    ]
+    table.add_row(row)
 
-    for subscription in subscriptions:
-        TABLE.add_row(
-            [
-                subscription["subscriptionscriptionArn"],
-                subscription["Owner"],
-                subscription["Endpoint"],
-                subscription["TopicArn"],
-                get_region_from_arn(subscription["SubscriptionArn"]),
-            ]
-        )
+
+def print_subscriptions(subs):
+    """Print subs in PrettyTable"""
+    for sub in subs:
+        add_row_to_table(TABLE, sub)
 
 
 def list_subscription(region):
@@ -53,7 +55,7 @@ def list_subscription(region):
 
 # Start multithreading on individual urls
 with concurrent.futures.ThreadPoolExecutor() as executor:
-    results = [executor.submit(list_subscription, region) for region in REGIONS]
+    [executor.submit(list_subscription, region) for region in REGIONS]
 
 
 def lambda_handler(event, context):
