@@ -1,23 +1,41 @@
-If you are looking to delete EBS Volume(s) with specific snapshot status and snapshot id, you can use [delete_volumes_by_snapshot.py](delete_volumes_by_snapshot.py) and replace -
+# Delete EBS Volumes by Snapshots
 
-```
+This repository provides a Python script, [delete_volumes_by_snapshot.py](delete_volumes_by_snapshot.py), designed to delete EBS volumes based on specific snapshot criteria.
+
+## Usage
+
+To use the script:
+
+1. Open [delete_volumes_by_snapshot.py](delete_volumes_by_snapshot.py) and replace the following placeholders with your specific values:
+  
+```python
 SNAPSHOT_ID = '<snapshot-id>'
 SNAPSHOT_STATUS = '<snapshot-status>'
 ```
 
-You can override region from all the SDK clients by passing `region_name=region_name` param during the client creation. To ensure you do not accidentally delete the volume without verification, a dry run flag is set on the API call: `delete_volume(volume['VolumeId'], dry_run=True)`. Once you are sure the required EBS volumes will be delete, you can set this value to False.
+1. Override the default region for all SDK clients by passing `region_name=your_region_name` parameter during client creation.
 
+1. To prevent accidental deletions, the script uses a dry run flag (`dry_run=True`) in the API call:
 
-### Output:
-
-#### Success:
+```python
+delete_volume(volume['VolumeId'], dry_run=True)
 ```
+
+Once you are confident that the correct EBS volumes will be deleted, set `dry_run=False` to perform the actual deletion.
+
+## Output Examples
+
+### Successful Deletions
+
+```bash
 Deleted Volume: vol-XXXX1
 Deleted Volume: vol-XXXX2
 ```
 
-#### Dry Run:
-```
-Skipping Volume: vol-XXXX as dry run flag is set. Unset this by calling `delete_volume(volume_id, dry_run=False)``
+### Dry Run Mode
 
+```bash
+Skipping Volume: vol-XXXX as dry run flag is set. Unset this by calling `delete_volume(volume_id, dry_run=False)`
 ```
+
+Replace placeholders with actual values and ensure careful verification before setting `dry_run=False` to execute deletions. This ensures the script operates safely according to your requirements.
