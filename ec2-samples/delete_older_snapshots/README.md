@@ -1,23 +1,14 @@
-This code describes AMIs available to you across all regions. Replace the AccountId or add multiple AccountIds under `Values`:
+# Delete old Snapshots in an account
 
+This function deletes older snapshots. By default snapshots older than 7 days will be deleted once you set the `DRY_RUN` flag to `False`. You can change both of these values by updating the below variables:
+
+```python
+DRY_RUN = True  # Set this to false when ready to delete
+DELETE_SNAPSHOT_OLDER_THAN_DAYS = 7  # Change to snapshot older than these many days
 ```
-EC2_PAGINATOR = EC2_PAGINATOR.paginate(Filters=[{
-    'Name': 'owner-id',
-    'Values': ['<Enter Account ID>']
-}])
-```
-
-Any snapshots older than 7 days will be tagged by default. You can change this by updating the time delta from:
-
-```
-RETENTION_DATE = datetime.datetime.utcnow() - datetime.timedelta(days=7)
-```
-
-⚠️ This script runs in Dry mode by default. You can change this to delete the snapshot once you are ready, by changing calling `delete_snapshot()` with `dry_run_flag=False`
-
 
 Function output:
 
 ```bash
-Skipping snapshot: snap-0b3c3672358db8339, created on 2019-04-24T17:09:59.247000+00:00 as dry run flag is set. Unset this by calling `delete_snapshot()` with dry_run_flag=False
+Skipping snapshot: snap-0b3c3672358db8339, created on 2019-04-24T17:09:59.247000+00:00 as dry run flag is set. Unset this by updating `DRY_RUN` to `True`
 ```
