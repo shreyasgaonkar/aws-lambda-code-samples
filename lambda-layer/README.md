@@ -1,8 +1,10 @@
-## Python3.8+
+# Lambda python layers
+
 For Python3.8+ runtimes, use the modules from `python3.8+` directory. For other earlier runtimes, use the .zip from this root directory.
 
-### Versions
-```
+## Versions
+
+```bash
 python38+
 │ boto3_python38+.zip (v1.18.42)
 │ numpy_pandas_scipy_python38+.zip
@@ -13,7 +15,7 @@ python38+
 └ requests_python38+.zip (v2.26.0)
 ```
 
-```
+```bash
 .
 │ boto3.zip (v1.10.2)
 │ pandasnumpy.zip
@@ -27,20 +29,19 @@ python38+
 └ prettyTable.zip
 ```
 
-
-You can use these ```.zip``` files in your projects by creating a layer and adding it to the required layers. Make sure to select the required runtimes for these layers for your functions to list them under the console.
+You can use these `.zip` files in your projects by creating a layer and adding it to the required layers. Make sure to select the required runtimes for these layers for your functions to list them under the console.
 
 ---
 
 Unlike deployment packages, modules for layers have to be bundled inside a [directory](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html#configuration-layers-path). For python that directory is 'python'. The folder structure would look something like this:
 
-```
+```bash
 pillow.zip
 │ python/PIL
 └ python/Pillow-5.3.0.dist-info
 ```
 
-### Additional Info
+## Additional Info
 
 1. `requests.zip` -> Useful if you were relying on the vendored version of request module off the botocore now that has been [stripped off the SDK](https://aws.amazon.com/blogs/developer/removing-the-vendored-version-of-requests-from-botocore/).
 

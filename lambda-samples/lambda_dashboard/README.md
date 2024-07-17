@@ -1,10 +1,12 @@
+# Get Lambda functions overview across all functions in the account
+
 [lambda_dashboard.py](lambda_dashboard.py) will return regional metrics across all AWS regions including number of Lambda functions, Code Storage, Full Account Concurrency and unreserved account concurrency in one place.
 
 Uses [PrettyTable](https://pypi.org/project/PrettyTable/) module imported as a [Lambda layer](/lambda-layer/prettyTable.zip).
 
-
 Sample output:
-```
+
+```bash
 +----------------+--------------------+--------------+----------------------+------------------------+
 |     Region     | Lambda function(s) | Code Storage | Regional Concurrency | Unreserved Concurrency |
 +----------------+--------------------+--------------+----------------------+------------------------+
@@ -29,4 +31,6 @@ Sample output:
 
 Once the table has been created, you can [sort using field](https://github.com/jazzband/prettytable#sorting-your-table-by-a-field) while printing:
 
-``` print(TABLE.get_string(sortby="Code Storage", reversesort=True)) ```
+```bash
+print(TABLE.get_string(sortby="Code Storage", reversesort=True))
+```
