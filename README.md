@@ -20,7 +20,7 @@ A few of the sample AWS Lambda function codes for common use-cases with [Amazon 
 
 1. Delete orphaned Event Source Mappings - [clean_orphaned_event_source_mappings.py](lambda-samples/clean_orphaned_event_source_mappings/)
 
-1. Extract Lambda code from entire deployment package - [extract_deployment_package_without_layers](lambda-samples/extract_deployment_package_without_layers/)
+1. Extract Lambda code from the entire deployment package - [extract_deployment_package_without_layers](lambda-samples/extract_deployment_package_without_layers/)
 
 1. Check Async queue congestions and delays in processing async events - [get_async_invoke_delay.py](lambda-samples/get_async_invoke_delay/)
 
@@ -46,7 +46,7 @@ A few of the sample AWS Lambda function codes for common use-cases with [Amazon 
 
 1. List all Lambda layers and it's info  - [list_layer_info.py](lambda-samples/list_layer_info/)
 
-1. Use python modules from layers over deployment package - [use_modules_from_layers](lambda-samples/use_modules_from_layers)
+1. Use Python modules from layers over the deployment package - [use_modules_from_layers](lambda-samples/use_modules_from_layers)
 
 1. Lambda X-Ray examples - [x_ray_sample.py](lambda-samples/x_ray_sample/)
 ## SNS
@@ -63,7 +63,7 @@ A few of the sample AWS Lambda function codes for common use-cases with [Amazon 
 
 1. SMS Dashboard - [sms_dashboard.py](sns-samples/sms_dashboard/)
 
-1. Send SMS with custom originating number - [sms_with_custom_originating_number](sns-samples/sms_with_custom_originating_number/)
+1. Send SMS with a custom originating number - [sms_with_custom_originating_number](sns-samples/sms_with_custom_originating_number/)
 
 ## API Gateway
 
@@ -71,7 +71,7 @@ A few of the sample AWS Lambda function codes for common use-cases with [Amazon 
 
 ## Additional Information
 
-- Refer to the individual .md files for additional information.
+- Please take a look at the individual .md files for additional information.
 
 ## Built with
 - [Python3](https://www.python.org/downloads/)
@@ -86,16 +86,16 @@ A few of the sample AWS Lambda function codes for common use-cases with [Amazon 
 
 ## Contributing
 
-This is an iterative repository, I'll keep adding more sample codes for more use-cases as I come across them. I have tested all scripts using ```Python3.6``` runtime inside Lambda under ```us-west-2``` region, and most of this should work for all ```Python3``` runtime.
+This is an iterative repository, I'll keep adding more sample codes for more use cases as I come across them. I had initially created all sample scripts using `Python3.6` runtime which is now deprecated. Moving forward, I'll use the latest supported Python runtime in Lambda.
 
 - Fork repo
 - Set runtime as ```Python3``` (```Python3.7``` preferred)
 - Send your awesome :raised_hands: [Pull Request](https://github.com/shreyasgaonkar/aws-lambda-code-samples/pulls) with code/.md changes
     - Follow Python's [PEP8](https://www.python.org/dev/peps/pep-0008/) coding standards.
     - Commit repo using the [Seven Rules](https://chris.beams.io/posts/git-commit/#seven-rules)
-- Your PR gets merged :white_check_mark: and a shout out :loudspeaker:
+- Your PR gets merged :white_check_mark: and a shout-out:loudspeaker:
 
-## Looking for CLI samples?
+## Would you be looking for CLI samples?
 - Head to https://github.com/shreyasgaonkar/aws-cli-code-samples
 
 #### Repo structure:
